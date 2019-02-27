@@ -35,7 +35,7 @@ CSearchListItem::CSearchListItem( QTreeWidget* pParent, Path* pPath, int iLocati
    setText( 1, (iLocation == CSearchPosition::SP_NAME ? QString("") : s) );
 
    // Sets the font of column 0 to bold.
-   //QFont f = font(0); f.setBold(TRUE); setFont(0, f);
+   //QFont f = font(0); f.setBold(true); setFont(0, f);
 }
 
 // -------------------------------------------------------------------------------

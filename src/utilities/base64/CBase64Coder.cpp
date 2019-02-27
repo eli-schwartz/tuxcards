@@ -148,7 +148,7 @@ void CBase64Coder::decode( QByteArray& dest, const QString& sSource ) const
          if ( sSource.length() <= iCurrentSourcePos )
             break;
 
-         unsigned char cSourceChar = sSource[iCurrentSourcePos++].toAscii();
+         unsigned char cSourceChar = sSource[iCurrentSourcePos++].toLatin1();
          if ( ('\n' != cSourceChar) && ('\r' != cSourceChar) )
          {
                if (('=' != cSourceChar) && (sSource.length() > iCurrentSourcePos))

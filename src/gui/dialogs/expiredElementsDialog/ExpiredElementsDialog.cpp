@@ -36,7 +36,7 @@ ExpiredElementsDialog::ExpiredElementsDialog( QWidget* pParent )
    , mContextMenu( pParent )
 // -------------------------------------------------------------------------------
 {
-   setModal( TRUE );
+   setModal( true );
    ui.setupUi(this);
 
    connect( ui.pExpiryList, SIGNAL(clicked(Q3ListViewItem*)), this, SLOT(previewEntry(Q3ListViewItem*)) );

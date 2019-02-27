@@ -260,7 +260,7 @@ void XMLPersister::parseAttributes( QDomElement& elem,
 bool XMLPersister::createDomDocumentFromFile( QFile& xmlFile, QDomDocument& doc )
 // -------------------------------------------------------------------------------
 {
-   bool bRetVal = FALSE;
+   bool bRetVal = false;
 
    if ( !xmlFile.open( QIODevice::ReadOnly ) )
       return bRetVal;

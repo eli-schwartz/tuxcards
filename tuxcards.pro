@@ -1,5 +1,8 @@
 # TEMPLATE = app #lib
 QT += xml
+QT += gui
+QT += widgets
+QT += printsupport
 
 CONFIG += qt debug  #warn_on release #release  #staticlib
 #exists( $(QTDIR)/lib/libqt-mt* ) {

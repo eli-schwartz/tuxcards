@@ -69,7 +69,7 @@ void CTreeElement::init( CTreeInformationElement& element )
   connect( &element, SIGNAL(childAdded(CInformationElement*)), this, SLOT(childAddEvent(CInformationElement*)) );
   connect( &element, SIGNAL(childMoved(int, int)), this, SLOT(childMovedEvent(int, int)) );
 
-//  setRenameEnabled(0, TRUE);
+//  setRenameEnabled(0, true);
 }
 
 /**

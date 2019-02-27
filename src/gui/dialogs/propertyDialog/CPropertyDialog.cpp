@@ -54,7 +54,7 @@ CPropertyDialog::CPropertyDialog( QWidget* pParent/*,
 // -------------------------------------------------------------------------------
 {
    ui.setupUi( this );
-   setModal( TRUE );
+   setModal( true );
 
    connect( ui.mpChangeIconButton, SIGNAL(clicked()), this, SLOT(chooseIcon()) );
    connect( ui.mpChangeExpiryDateButton, SIGNAL(clicked()), this, SLOT(openDateInputDialog()) );
@@ -133,7 +133,7 @@ void CPropertyDialog::setUp( CInformationElement* pElement, int iMode )
                      pElement->getDescriptionColor()/*,
                      pElement->isEncryptionEnabled(),
                      pElement->isCurrentlyEncrypted()*/ );
-      ui.mpTextFormatChoser->setEnabled( FALSE );
+      ui.mpTextFormatChoser->setEnabled( false );
    }
    else if ( MODE_CREATE_NEW_ELEMENT == iMode )
    {
@@ -141,7 +141,7 @@ void CPropertyDialog::setUp( CInformationElement* pElement, int iMode )
 
       ui.mpParentLabel->setText( tr("Child from") + " '" + pElement->getDescription() + "'" );
       setAttributes( "", CInformationElement_NO_ICON );
-      ui.mpTextFormatChoser->setEnabled( TRUE );
+      ui.mpTextFormatChoser->setEnabled( true );
    }
    else
    {
@@ -169,13 +169,13 @@ void CPropertyDialog::setAttributes( QString sDescription, QString sIconFilename
    if ( sIconFilename == CInformationElement_NO_ICON )
    {
       // entry without icon
-      ui.mpUseIconGroupBox->setChecked( FALSE );
+      ui.mpUseIconGroupBox->setChecked( false );
       ui.mpIconLabel->setPixmap( mBlankIcon );
    }
    else
    {
       // entry with icon
-      ui.mpUseIconGroupBox->setChecked( TRUE );
+      ui.mpUseIconGroupBox->setChecked( true );
       ui.mpIconLabel->setPixmap( QPixmap::fromImage( QImage(sIconFilename) ) );
    }
    ui.mpLocationLabel->setText( sIconFilename );
@@ -415,12 +415,12 @@ void CPropertyDialog::changeProperties()
    if ( miMode == MODE_CHANGE_PROPERTIES )
    {
       // change properties: name & icon
-      mpEditingElement->setBatched( TRUE );
+      mpEditingElement->setBatched( true );
       mpEditingElement->setDescription( getName() );
       mpEditingElement->setIconFileName( getIconFileName() );
       mpEditingElement->setDescriptionColor( getDescriptionColor() );
       mpEditingElement->setExpiryDate( ui.mpExpiryDateGroupBox->isChecked(), mExpiryDate );
-      mpEditingElement->setBatched( FALSE );
+      mpEditingElement->setBatched( false );
 
       // only do something if encryption mode has changed
 //      if ( bEncryptionModeChanged )

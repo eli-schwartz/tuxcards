@@ -25,8 +25,11 @@
 #define  getIcon(x)  CIconManager::getInstance().getIcon(x)
 
 #include <QMessageBox>
+#include <QDrag>
 #include <QDragEnterEvent>
 #include "../CTuxCardsConfiguration.h"
+
+#include <QMimeData>
 
 #define CTREE_COLUMN_ZERO  0
 #define CTREE_AUTO_EXPAND_TIME 750
@@ -68,7 +71,7 @@ CTree::CTree( QWidget* pParent )
    settingUpContextMenu();
    mHistory.setListener( this );
 
-   setAcceptDrops( TRUE );
+   setAcceptDrops( true );
 
    initModel();
 }
@@ -102,12 +105,12 @@ void CTree::settingUpActions()
    mpHistoryPrevAction = new QAction( getIcon("back"), tr("Back, Previous Entry (Alt+Left)"), this );
    mpHistoryPrevAction->setShortcut( Qt::AltModifier + Qt::Key_Left );
    connect( mpHistoryPrevAction, SIGNAL(triggered()), this, SLOT(slotActivatePreviousHistoryElement()) );
-   mpHistoryPrevAction->setEnabled( FALSE );
+   mpHistoryPrevAction->setEnabled( false );
 
    mpHistoryNextAction = new QAction( getIcon("forward"), tr("Forward, Next Entry (Alt+Right)"), this );
    mpHistoryNextAction->setShortcut( Qt::AltModifier + Qt::Key_Right );
    connect( mpHistoryNextAction, SIGNAL(triggered()), this, SLOT(slotActivateNextHistoryElement()) );
-   mpHistoryNextAction->setEnabled( FALSE );
+   mpHistoryNextAction->setEnabled( false );
 
 
    mpLockAction = new QAction( getIcon("lock"), tr("Encrypt active Entry"), this );
@@ -115,7 +118,7 @@ void CTree::settingUpActions()
 
    mpRemoveLockAction = new QAction( getIcon("unlock"), tr("Remove Encryption from active Entry"), this );
    connect( mpRemoveLockAction, SIGNAL(triggered()), this, SLOT(slotRemoveEncryptionFromActiveEntry()) );
-   mpRemoveLockAction->setEnabled( FALSE );
+   mpRemoveLockAction->setEnabled( false );
 
 }
 
@@ -136,7 +139,7 @@ void CTree::settingUpContextMenu()
    // add a separator
    QAction* pSeparator = new QAction( "", this );
    Q_ASSERT( pSeparator );
-   pSeparator->setSeparator(TRUE);
+   pSeparator->setSeparator(true);
    addAction( pSeparator );
 
    addAction( mpIEMoveUpAction );
@@ -145,7 +148,7 @@ void CTree::settingUpContextMenu()
    // add another separator
    pSeparator = new QAction( "", this );
    Q_ASSERT( pSeparator );
-   pSeparator->setSeparator(TRUE);
+   pSeparator->setSeparator(true);
    addAction( pSeparator );
 
    addAction( mpHistoryPrevAction );
@@ -412,7 +415,7 @@ void CTree::slotTreeItemCollapsed( const QModelIndex& index )
 
       CTreeInformationElement* pTIE = mModel.mapIndexToIE( index );
       if ( pTIE )
-         pTIE->setOpen( FALSE );
+         pTIE->setOpen( false );
    }
 }
 
@@ -427,7 +430,7 @@ void CTree::slotTreeItemExpanded( const QModelIndex& index )
 
       CTreeInformationElement* pTIE = mModel.mapIndexToIE( index );
       if ( pTIE )
-         pTIE->setOpen( TRUE );
+         pTIE->setOpen( true );
    }
 }
 
@@ -456,7 +459,7 @@ void CTree::currentChanged( const QModelIndex& current, const QModelIndex& previ
 void CTree::addElement()
 // -------------------------------------------------------------------------------
 {
-   Q_ASSERT( TRUE == mModel.isValid() );
+   Q_ASSERT( true == mModel.isValid() );
    if ( !mModel.isValid() )
       return;
 
@@ -506,7 +509,7 @@ void CTree::slotPropertyDialogSuccessfullyClosed()
                         mModel.rowCount( currentIndex() ), currentIndex()
                       );
 
-      setExpanded ( currentIndex(), TRUE );
+      setExpanded ( currentIndex(), true );
    }
 }
 
@@ -537,7 +540,7 @@ void CTree::changeActiveElementProperties()
 void CTree::askForElementDeletionAndDeleteIt()
 // -------------------------------------------------------------------------------
 {
-   Q_ASSERT( TRUE == mModel.isValid() );
+   Q_ASSERT( true == mModel.isValid() );
    if ( !mModel.isValid() )
       return;
 
@@ -580,7 +583,7 @@ void CTree::askForElementDeletionAndDeleteIt()
 void CTree::slotEncryptActiveElement()
 // -------------------------------------------------------------------------------
 {
-   Q_ASSERT( TRUE == mModel.isValid() );
+   Q_ASSERT( true == mModel.isValid() );
    if ( !mModel.isValid() )
       return;
 
@@ -631,7 +634,7 @@ void CTree::slotEncryptActiveElement()
 void CTree::slotRemoveEncryptionFromActiveEntry()
 // -------------------------------------------------------------------------------
 {
-   Q_ASSERT( TRUE == mModel.isValid() );
+   Q_ASSERT( true == mModel.isValid() );
    if ( !mModel.isValid() )
       return;
 
@@ -965,7 +968,7 @@ bool CTree::isEntryDroppedOnItself( const QModelIndex& dropIndex,
    //         <<"against '"<<mpModel->data(mDraggedIndexOrChild).toString().toStdString()<<"'"<<std::endl;
 
    if ( dropIndex ==  draggedIndexOrChild )
-      return TRUE;
+      return true;
 
    QModelIndex parentIndex = draggedIndexOrChild;
 
@@ -974,9 +977,9 @@ bool CTree::isEntryDroppedOnItself( const QModelIndex& dropIndex,
    {
       x = mModel.index( iRow, 0, parentIndex );
       if ( isEntryDroppedOnItself( dropIndex, x ) )
-         return TRUE;
+         return true;
    }
 
-   return FALSE;
+   return false;
 }
 /** *********************** Drag & Drop - end ***********************************/

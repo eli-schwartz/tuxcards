@@ -31,7 +31,7 @@ CPasswdDialog::CPasswdDialog( QWidget* pParent )
 // -------------------------------------------------------------------------------
 {
    ui.setupUi( this );
-   setModal( TRUE );
+   setModal( true );
 
    connect( ui.mpOkButton, SIGNAL(released()), this, SLOT(slotVerifyPasswd()) );
 }

@@ -93,7 +93,7 @@ void Persister::unpackWithIcons(QString s, bool root, CTreeInformationElement* p
 	knoten=knoten.mid(i+1+l2);
 
 	// check whether this Knoten was opened or closed
-	isOpen = (knoten.left(1)=="+" ? FALSE : TRUE );
+	isOpen = (knoten.left(1)=="+" ? false : true );
 	knoten=knoten.mid(1);
 
 	// extract icon file
@@ -189,7 +189,7 @@ void Persister::unpackWithIcons(QString s, bool root, CTreeInformationElement* p
 //	knoten=knoten.mid(i+1+l2);
 //
 //	// check whether this Knoten was opened or closed
-//	isOpen = (knoten.left(1)=="+" ? FALSE : TRUE );
+//	isOpen = (knoten.left(1)=="+" ? false : true );
 //	knoten=knoten.mid(1);
 //
 //	i=knoten.find("*");

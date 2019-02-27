@@ -62,7 +62,7 @@ void CSearchListItemDelegate::drawDisplay( QPainter* pPainter,
       //QMessageBox::information( 0, "", "<i>CSearchListItemDelegate::drawDisplay()</i>" );
 
       QFont f = pPainter->font();
-      f.setItalic( TRUE );
+      f.setItalic( true );
       pPainter->setFont( f );
       pPainter->setPen( Qt::red );
       pPainter->drawText( option.rect, "abc" );

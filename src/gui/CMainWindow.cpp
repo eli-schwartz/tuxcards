@@ -116,7 +116,7 @@ CMainWindow::CMainWindow( const QString& sArg )
 // , mpQuickLoader( NULLPTR )
  , mpStatusBar_ChangeLabel( NULLPTR )
  , mpStatusBar_TextFormatLabel( NULLPTR )
- , mbChangesExist( FALSE )
+ , mbChangesExist( false )
  , mSaveChangesDialog( this )
 
  , mpEditFontCombo( NULLPTR )
@@ -260,7 +260,7 @@ void CMainWindow::settingUpMainWindow()
    settingUpTree( *mpSplit );
    settingUpEditor( *mpSplit );
 
-   mpSplit->setOpaqueResize(TRUE);
+   mpSplit->setOpaqueResize(true);
 
    settingUpActions();
    settingUpMenu();
@@ -535,21 +535,21 @@ void CMainWindow::settingUpActions( void )
 
    // editor actions - text formating
    mpEditBoldAction = new QAction( getIcon("text_bold"), tr("&Bold") /*"(Ctrl+B)"*/, this );
-   QFont f = mpEditBoldAction->font(); f.setBold( TRUE ); mpEditBoldAction->setFont( f );
+   QFont f = mpEditBoldAction->font(); f.setBold( true ); mpEditBoldAction->setFont( f );
    mpEditBoldAction->setShortcut( Qt::ControlModifier + Qt::Key_B );
-   mpEditBoldAction->setCheckable( TRUE );
+   mpEditBoldAction->setCheckable( true );
    connect( mpEditBoldAction, SIGNAL(triggered()), mpEditor, SLOT(toggleFontBold()) );
 
    mpEditItalicAction = new QAction( getIcon("text_italic"), tr("&Italic") /*"(Ctrl+I)"*/, this );
-   f = mpEditItalicAction->font(); f.setItalic( TRUE ); mpEditItalicAction->setFont( f );
+   f = mpEditItalicAction->font(); f.setItalic( true ); mpEditItalicAction->setFont( f );
    mpEditItalicAction->setShortcut( Qt::ControlModifier + Qt::Key_I );
-   mpEditItalicAction->setCheckable( TRUE );
+   mpEditItalicAction->setCheckable( true );
    connect( mpEditItalicAction, SIGNAL(triggered(bool)), mpEditor, SLOT(setFontItalic(bool)) );
 
    mpEditUnderAction = new QAction( getIcon("text_under"), tr("Underline") /*"(Ctrl+U)"*/, this );
-   f = mpEditUnderAction->font(); f.setUnderline( TRUE ); mpEditUnderAction->setFont( f );
+   f = mpEditUnderAction->font(); f.setUnderline( true ); mpEditUnderAction->setFont( f );
    mpEditUnderAction->setShortcut( Qt::ControlModifier + Qt::Key_U );
-   mpEditUnderAction->setCheckable( TRUE );
+   mpEditUnderAction->setCheckable( true );
    connect( mpEditUnderAction, SIGNAL(triggered(bool)), mpEditor, SLOT(setFontUnderline(bool)) );
 
    // color action
@@ -561,35 +561,35 @@ void CMainWindow::settingUpActions( void )
 
    // alignment actions
    mpEditTextLeftAction = new QAction( getIcon("text_left"), tr("Align Left"), this );
-   mpEditTextLeftAction->setCheckable( TRUE );
+   mpEditTextLeftAction->setCheckable( true );
    connect( mpEditTextLeftAction, SIGNAL(triggered()), this, SLOT(textLeft()) );
 
    mpEditTextCenterAction = new QAction( getIcon("text_center"), tr("Center"), this );
-   mpEditTextCenterAction->setCheckable( TRUE );
+   mpEditTextCenterAction->setCheckable( true );
    connect( mpEditTextCenterAction, SIGNAL(triggered()), this, SLOT(textHCenter()) );
 
    mpEditTextRightAction = new QAction( getIcon("text_right"), tr("Align Right"), this );
-   mpEditTextRightAction->setCheckable( TRUE );
+   mpEditTextRightAction->setCheckable( true );
    connect( mpEditTextRightAction, SIGNAL(triggered()), this, SLOT(textRight()) );
 
    mpEditTextBlockAction = new QAction( getIcon("text_block"), tr("Text Block"), this );
-   mpEditTextBlockAction->setCheckable( TRUE );
+   mpEditTextBlockAction->setCheckable( true );
    connect( mpEditTextBlockAction, SIGNAL(triggered()), this, SLOT(textBlock()) );
 
 
    // toggle toolbar actions
    mpMainToolBarAction = new QAction( tr("Show Main Toolbar"), this );
-   mpMainToolBarAction->setCheckable( TRUE );
+   mpMainToolBarAction->setCheckable( true );
    mpMainToolBarAction->setChecked( mConfiguration.getBoolValue( CTuxCardsConfiguration::B_SHOW_MAIN_TOOLBAR ) );
    connect( mpMainToolBarAction, SIGNAL(toggled(bool)), this, SLOT(slotSetMainToolBarVisible(bool)) );
 
    mpEntryToolBarAction = new QAction( tr("Show Entry Manipulation Toolbar"), this );
-   mpEntryToolBarAction->setCheckable( TRUE );
+   mpEntryToolBarAction->setCheckable( true );
    mpEntryToolBarAction->setChecked( mConfiguration.getBoolValue( CTuxCardsConfiguration::B_SHOW_ENTRY_TOOLBAR ) );
    connect( mpEntryToolBarAction, SIGNAL(toggled(bool)), this, SLOT(slotSetEntryToolBarVisible(bool)) );
 
    mpEditorToolBarAction = new QAction( tr("Show Editor Toolbar"), this );
-   mpEditorToolBarAction->setCheckable( TRUE );
+   mpEditorToolBarAction->setCheckable( true );
    mpEditorToolBarAction->setChecked( mConfiguration.getBoolValue( CTuxCardsConfiguration::B_SHOW_EDITOR_TOOLBAR ) );
    connect( mpEditorToolBarAction, SIGNAL(toggled(bool)), this, SLOT(slotSetEditorToolBarVisible(bool)) );
 }
@@ -1124,30 +1124,30 @@ void CMainWindow::textColorChanged( const QColor& c )
 void CMainWindow::textAlignmentChanged( Qt::Alignment a )
 // -------------------------------------------------------------------------------
 {
-   mpEditTextLeftAction->setChecked( FALSE );
-   mpEditTextCenterAction->setChecked( FALSE );
-   mpEditTextRightAction->setChecked( FALSE );
-   mpEditTextBlockAction->setChecked( FALSE );
+   mpEditTextLeftAction->setChecked( false );
+   mpEditTextCenterAction->setChecked( false );
+   mpEditTextRightAction->setChecked( false );
+   mpEditTextBlockAction->setChecked( false );
 
    //std::cout<<"CMainWindow::textAlignmentChanged() to "<<a<<std::endl;
 
    switch (a)
    {
    case Qt::AlignHCenter:
-      mpEditTextCenterAction->setChecked( TRUE );
+      mpEditTextCenterAction->setChecked( true );
       //std::cout<<"center"<<std::endl;
       break;
    case Qt::AlignRight:
-      mpEditTextRightAction->setChecked( TRUE );
+      mpEditTextRightAction->setChecked( true );
       //std::cout<<"right"<<std::endl;
       break;
    case Qt::AlignJustify:
-      mpEditTextBlockAction->setChecked( TRUE );
+      mpEditTextBlockAction->setChecked( true );
       //std::cout<<"just"<<std::endl;
       break;
    case Qt::AlignLeft:
    default:
-      mpEditTextLeftAction->setChecked( TRUE );
+      mpEditTextLeftAction->setChecked( true );
       //std::cout<<"left"<<std::endl;
       break;
    }
@@ -1225,7 +1225,7 @@ void CMainWindow::textBlock()
 // {
 //    QString configurationFileName = QDir::homePath() + "/.tuxcards";
 //
-//    ConfigParser parser( configurationFileName, FALSE );
+//    ConfigParser parser( configurationFileName, false );
 //    parser.setGroup("General");
 //    QString version   = parser.readEntry("Version",   "previousVersion");
 //    // TODO: Check whether this version is correct and does work
@@ -1324,7 +1324,7 @@ QMessageBox::Button CMainWindow::askForSaving( const QString& sQuestion )
 void CMainWindow::loadLastSavedDataIfConfigFileIsFound( const QString& sArg )
 // -------------------------------------------------------------------------------
 {
-   bool bResult = FALSE;
+   bool bResult = false;
 
    if ( sArg != "" )
    {
@@ -1421,13 +1421,13 @@ void CMainWindow::open()
 
 
 /**
- * Returns TRUE, if file was opend successfully; otherwise FALSE.
+ * Returns true, if file was opend successfully; otherwise false.
  */
 // -------------------------------------------------------------------------------
 bool CMainWindow::open( const QString& sFileName )
 // -------------------------------------------------------------------------------
 {
-   bool bRetVal = FALSE;
+   bool bRetVal = false;
 
 //  int format = getDataFileFormat(fileName);
 //
@@ -1461,7 +1461,7 @@ bool CMainWindow::open( const QString& sFileName )
  * informationcollection from it & sets latter one to be presented
  * within tuxcards.
  *
- * Returns TRUE, if file was opend successfully; otherwise FALSE.
+ * Returns true, if file was opend successfully; otherwise false.
  */
 // -------------------------------------------------------------------------------
 bool CMainWindow::openXMLDataFile( const QString& sFileName )
@@ -1482,12 +1482,12 @@ bool CMainWindow::openXMLDataFile( const QString& sFileName )
                            tr("ERROR - Could not open") + " '"+ sAbsoluteFileName
                            + "' " + tr("for reading or parse error."),
                            QMessageBox::Ok, QMessageBox::NoButton, QMessageBox::NoButton);
-      return FALSE;
+      return false;
    }
 
    initializingCollection( sAbsoluteFileName );
 
-   return TRUE;
+   return true;
 }
 
 // -------------------------------------------------------------------------------
@@ -1687,7 +1687,7 @@ void CMainWindow::closeEvent( QCloseEvent* pEv )
 // * informationcollection from it & sets latter one to be presented
 // * within tuxcards.
 // *
-// * Returns TRUE, if file was opend successfully; otherwise FALSE.
+// * Returns true, if file was opend successfully; otherwise false.
 // */
 //// -------------------------------------------------------------------------------
 //bool CMainWindow::openOldDataFile(QString fileName)
@@ -1696,7 +1696,7 @@ void CMainWindow::closeEvent( QCloseEvent* pEv )
 //  QFile file(fileName);
 //  if (! file.open(QIODevice::ReadOnly) ) {
 //    showMessage("ERROR could not open '"+fileName+"' for reading.", 5);
-//    return FALSE;
+//    return false;
 //  }
 //
 //  // create absolute file name, in case a relative one is given
@@ -1715,7 +1715,7 @@ void CMainWindow::closeEvent( QCloseEvent* pEv )
 //  mpCollection = Persister::createInformationCollection( s );
 //  initializingCollection( fileName );
 //
-//  return TRUE;
+//  return true;
 //}
 //
 //
@@ -1816,9 +1816,9 @@ void CMainWindow::showMessage( const QString& sMessage, int iSeconds )
 void CMainWindow::recognizeChanges()
 // -------------------------------------------------------------------------------
 {
-   mbChangesExist = TRUE;
+   mbChangesExist = true;
 
-   setWindowModified( TRUE );  // With this the members 'mpStatusBar_ChangeLabel'
+   setWindowModified( true );  // With this the members 'mpStatusBar_ChangeLabel'
                                // and 'mbChangesExist' can be removed.
 
    if ( mpStatusBar_ChangeLabel )
@@ -1833,9 +1833,9 @@ void CMainWindow::recognizeChanges()
 void CMainWindow::clearChanges()
 // -------------------------------------------------------------------------------
 {
-   mbChangesExist = FALSE;
+   mbChangesExist = false;
 
-   setWindowModified( FALSE );
+   setWindowModified( false );
 
    if ( mpStatusBar_ChangeLabel )
       mpStatusBar_ChangeLabel->setText(" ");
@@ -1853,7 +1853,7 @@ void CMainWindow::callingExecutionStatement() const
    if ( mConfiguration.getStringValue( CTuxCardsConfiguration::S_EXECUTE_STATEMENT ).isEmpty() )
       return;
 
-   system( mConfiguration.getStringValue( CTuxCardsConfiguration::S_EXECUTE_STATEMENT ).toAscii() );
+   system( mConfiguration.getStringValue( CTuxCardsConfiguration::S_EXECUTE_STATEMENT ).toLatin1() );
 }
 
 
@@ -1880,7 +1880,7 @@ void CMainWindow::exportHTML()
   bool bSuccess = HTMLWriter::writeCollectionToHTMLFile( *mpCollection, sDirPath );
 
   // done
-  if ( FALSE != bSuccess )
+  if ( false != bSuccess )
   {
      QMessageBox::information( this, tr("HTML-Export"), tr("HTML") + "<em>" + tr("Export") +
                                "</em> <font size=-1>(" + QString(TUX_SHORT_VERSION) + ")</font> " +

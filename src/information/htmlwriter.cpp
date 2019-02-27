@@ -38,7 +38,7 @@ QStringList HTMLWriter::static_List = QStringList();
 
 /**
  * Exports a aollection to HTML.
- * Returns 'TRUE' if successful, otherwise 'FALSE'.
+ * Returns 'true' if successful, otherwise 'false'.
  */
 // -------------------------------------------------------------------------------
 bool HTMLWriter::writeCollectionToHTMLFile( CInformationCollection& collection,
@@ -49,15 +49,15 @@ bool HTMLWriter::writeCollectionToHTMLFile( CInformationCollection& collection,
 
    bool bSuccess = createSubDir( dir );
    if ( !bSuccess )
-      return FALSE;
+      return false;
 
    bSuccess = createImages( dir );
    if ( !bSuccess )
-      return FALSE;
+      return false;
 
    static_List.clear();
 
-   // TODO: Check if files could be opened, also. If not -> return 'FALSE'.
+   // TODO: Check if files could be opened, also. If not -> return 'false'.
    createTopFrame( dir );
 
    CInformationElement* pRootElem = collection.getRootElement();
@@ -68,7 +68,7 @@ bool HTMLWriter::writeCollectionToHTMLFile( CInformationCollection& collection,
    }
 
    static_List.clear();
-   return TRUE;
+   return true;
 }
 
 
@@ -77,10 +77,10 @@ bool HTMLWriter::createSubDir( const QDir& dir )
 // -------------------------------------------------------------------------------
 {
    bool bSuccess = dir.mkdir( TUX_HTMLEXPORT_SUBDIR );
-   if ( FALSE == bSuccess )
-      return FALSE;
+   if ( false == bSuccess )
+      return false;
 
-   return TRUE;
+   return true;
 }
 
 // -------------------------------------------------------------------------------

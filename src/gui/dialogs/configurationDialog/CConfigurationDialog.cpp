@@ -35,9 +35,9 @@ CConfigurationDialog::CConfigurationDialog( QWidget* parent, CTuxCardsConfigurat
    addCactusBarToDialog();
 
    // do not use the lineBreak mode stuff, this is not needed
-   ui.mpLineBreakGroupBox->setVisible( FALSE );
+   ui.mpLineBreakGroupBox->setVisible( false );
 
-   setModal( TRUE );
+   setModal( true );
 
    connect( ui.mpTopColorButton,    SIGNAL(clicked()), this, SLOT(slotChangeTopColor()) );
    connect( ui.mpBottomColorButton, SIGNAL(clicked()), this, SLOT(slotChangeBottomColor()) );

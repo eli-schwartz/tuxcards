@@ -32,7 +32,7 @@
 CEditor::CEditor( QWidget *pParent )
   : QTextEdit( pParent )
   , mpActiveElement( NULLPTR )
-  , SEMAPHORE_TEXT_WAS_SET( FALSE )
+  , SEMAPHORE_TEXT_WAS_SET( false )
 //  , meLinebreakMode( LINEBREAK_WITH_CTRL_SHIFT )
   , mbUseRichText( true )
   , mEditorFont()
@@ -82,7 +82,7 @@ QString CEditor::getText( void )
 void CEditor::setText( const QString& sText )
 // -------------------------------------------------------------------------------
 {
-   SEMAPHORE_TEXT_WAS_SET = TRUE;
+   SEMAPHORE_TEXT_WAS_SET = true;
 
    if ( mbUseRichText )
       setHtml( sText );
@@ -158,7 +158,7 @@ void CEditor::initialize( void )
    setText("");
    mpActiveElement = NULLPTR;
 
-   SEMAPHORE_TEXT_WAS_SET = FALSE;
+   SEMAPHORE_TEXT_WAS_SET = false;
 //  connect( this, SIGNAL(textChanged()), this, SLOT(sendUndoAvailableSignal()));
 //  connect( this, SIGNAL(textChanged()), this, SLOT(sendRedoAvailableSignal()));
 }
@@ -197,9 +197,9 @@ void CEditor::sendUndoAvailableSignal( void )
   if ( isUndoAvailable() )
   {
     if ( SEMAPHORE_TEXT_WAS_SET )
-      SEMAPHORE_TEXT_WAS_SET = FALSE;
+      SEMAPHORE_TEXT_WAS_SET = false;
     else
-      emit undoAvailable( TRUE );
+      emit undoAvailable( true );
   }
 }
 */
@@ -425,7 +425,7 @@ return;
    else
    {
       // This should not happen. An informationFormat should always be != NONE.
-      Q_ASSERT( FALSE );
+      Q_ASSERT( false );
    }
 
    setAcceptRichText( mbUseRichText );

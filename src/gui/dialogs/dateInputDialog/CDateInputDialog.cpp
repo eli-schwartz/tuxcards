@@ -28,7 +28,7 @@ CDateInputDialog::CDateInputDialog( QWidget* pParent )
 // -------------------------------------------------------------------------------
 {
    ui.setupUi( this );
-   setModal( TRUE );
+   setModal( true );
 }
 
 

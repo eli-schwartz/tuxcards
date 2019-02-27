@@ -144,7 +144,7 @@ void CIconSelectorDialog::progressBar_startReadDir( int iDirCount )
 
    ui.pProgressBar->reset();
    ui.pProgressBar->setMaximum( iDirCount );
-   ui.pProgressBar->setVisible( TRUE );
+   ui.pProgressBar->setVisible( true );
 }
 
 // -------------------------------------------------------------------------------
@@ -166,7 +166,7 @@ void CIconSelectorDialog::progressBar_readDirDone()
       return;
 
    ui.pProgressBar->setValue( ui.pProgressBar->maximum() );
-   ui.pProgressBar->setVisible( FALSE );
+   ui.pProgressBar->setVisible( false );
 }
 
 
@@ -183,9 +183,9 @@ void CIconSelectorDialog::readDirectory( const QDir& dir )
       return;
 
    if( dir.isRoot() )
-      ui.pDirectoryUpButton->setEnabled( FALSE );
+      ui.pDirectoryUpButton->setEnabled( false );
    else
-      ui.pDirectoryUpButton->setEnabled( TRUE );
+      ui.pDirectoryUpButton->setEnabled( true );
 
    ui.pList->clear();
    directoryChanged( dir.absolutePath() );

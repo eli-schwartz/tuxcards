@@ -539,7 +539,7 @@ QString CInformationElement::extractSearchLine( const QTextCursor& c ) const
    for ( i = iStartWithinLine; i >= 0; i-- )
    {
       QChar cChar = sLine.at(i);
-      if ( 0 == cChar.toAscii() )
+      if ( 0 == cChar.toLatin1() )
       {
          iTrimmedLineStart = i+1;
          break;
@@ -550,7 +550,7 @@ QString CInformationElement::extractSearchLine( const QTextCursor& c ) const
    for ( i = iEndWithinLine; i < sLine.length(); i++ )
    {
       QChar cChar = sLine.at(i);
-      if ( 0 == cChar.toAscii() )
+      if ( 0 == cChar.toLatin1() )
       {
          iTrimmedLineEnd = i;
          break;
