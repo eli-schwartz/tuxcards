@@ -1,0 +1,54 @@
+############################################################
+# Easter-egg description and configuration file for cactus #
+#                                                          #
+#  Autohor(s): Markus Gebhard, ukgh@rz.uni-karlsruhe.de    #
+############################################################
+   
+  
+############################################################
+# the first easter-egg ist the smiling face
+egg face{
+  "face.gif"   #image name as file
+  5            #Propability factor for this egg (1...5 make sense)
+  0,0          #min/max depth where the egg shall be mounted (0=root)  
+  60,80        #min/max height where the egg shall be mounted (0...100)
+  0,0          #min/max translation in x-direction from center of the shoot
+  1            #mount egg in front of everythig else (1=true, 0=false)
+}
+
+############################################################
+# the note - this one is for Alex' TuxCards :-)
+egg note{
+  "note.gif"
+  3
+  0,1
+  50,70
+  -2,2
+  1
+}
+
+############################################################
+# the sign
+egg sign{
+  "sign.gif"
+  1
+  0,0
+  50,70
+  -1,1
+  1
+}
+
+
+###########################################################
+# Format description of this file:
+#
+# For a description of an easter-egg the loader of this file first looks
+# for a line beginning with "egg ". The next string is the name of
+# the egg and in curly braces {} the options must follow.
+# The first option is the name of the file for the image (transparent GIF)
+# in double quota.
+# For the moment there are 5 options, as described in the examples above.
+# All the options have to be integer-values.
+# Everything written after the last option is currently ignored, until the
+# closing brace appears.
+###########################################################

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qt_de.qm</file>
+        <file>tuxcards_de.qm</file>
+    </qresource>
+</RCC>

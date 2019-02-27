@@ -1,0 +1,65 @@
+
+Installation
+============
+
+   These are generic installation instructions.
+You must have qt4.x.x installed. Preferable qt4.4.3 or above.
+
+   To compile a qt-application make sure that the variables
+QTDIR, QT_LIBRARY_PATH and QMAKESPEC are set. QTDIR pointing
+to the qt directory and QT_LIBRARY_PATH to the qt library path.
+QMAKESPEC must be set to the platform and compiler combination
+that you are using on your system. For example, if you are using
+Solaris and g++, you would set this environment variable to
+"solaris-g++". See your "../qt/mkspecs/" directory for a suitable
+combination.
+For more detailed instructions see the qt installation guide and
+the qmake documentation.
+
+
+
+The simplest way to compile this package is:
+
+  1. `cd' to the directory containing the package's source code and type
+     `qmake tuxcards.pro' to configure the package for your system. This
+     will create the 'Makefile'.
+
+  2. Type `make' to compile the package.
+
+  3. Type `make install' to install the program, the flower files and the
+     documentation. It might be the case that 'make install' prints an error.
+     Don't worry about it and try to start the program.
+
+  4. You can remove the program binaries and object files from the
+     source code directory by typing `make clean' or 'make distclean'.
+
+
+
+What do I do when ...
+
+  1. the program 'qmake' is not found?
+
+
+  Solution:
+     After a successfull installation of qt you need to add the qt bin-directory
+     to your path.
+     On most systems, the qt directory is located at '/usr/local/qt' or
+     '/usr/lib/qt'. If your qt dir is at '/usr/lib/qt' you have to type
+
+     > export QTDIR=/usr/lib/qt
+     > export PATH=$PATH:$QTDIR/bin
+
+
+
+
+  2. the make process fails with a message like this:
+     > /usr/bin/ld: cannot find -lqt
+     > collect2: ld returned 1 exit status
+     > make: *** [tuxcards] Error 1
+     ?
+
+
+  Solution:
+     Open the Makefile with an editor and edit it by hand. Exchange
+     '-lqt' with '-lqt-mt'. Save your changes and start over the compilation
+     process with 'make'.

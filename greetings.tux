@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE tuxcards_data_file>
+<InformationCollection>
+ <LastActiveElement>TuxCards - News</LastActiveElement>
+ <InformationElement isOpen="true" informationFormat="RTF" expires="false" isEncripted="false" expiryDate="So Jun 22 2003" iconFileName="none" >
+  <Description>TuxCards - News</Description>
+  <Information><![CDATA[<html><head><meta name="qrichtext" content="1" /></head><body style="font-size:10pt;font-family:Adobe Helvetica">
+<p align="center"></p>
+<p align="center"><span style="font-weight:600;color:#aa0000">Welcome to TuxCards Version 1.2</span></p>
+<p>Finally, it is time to release version 1.2 of TuxCards - The Notebook for TuxFreaks.<br /><br /><span style="font-style:italic">What has happened in between?</span></p>
+<p>Besides the development of new features, TuxCards did appear within several magazines:</p>
+<ul type="disc"><li><span style="font-style:italic">linux User</span>, (German Edition), Sep. 2003</li>
+<li><span style="font-style:italic">Linux Magazine</span> (English Edition - Canada), Oct. 2003</li>
+<li><span style="font-style:italic">Linux Magazine, &quot;World Freesoft Collection&quot;</span> (Japanese Edition), Dec. 2003</li>
+<li><span style="font-style:italic">easy Linux</span>, (German Edition), Feb. 2004</li>
+<li><span style="font-style:italic">Linux Format</span>, issue no. 54 (UK magazine), June 2004</li></ul>
+<p>The development of this release took much more time than was planned. I believe stability and reliability are two of the most important goals for software production, hence a lot of time was spent improving the code underneath the visible application.<br />Now, I am proud to present a good featured and stable TuxCards 1.2.</p>
+<p>Thank you to everyone who has reported ideas or hints on how to simplify the usage of TuxCards. Even though &quot;picture import&quot; is not done, most of the wanted features are included.<br />I am especially grateful for the people who showed me on how to encrypt data.<br /><br />Every week at least two dozen messages arrive with suggestions, bug reports and gratitude. I am very sorry that not every email could be answered, yet.</p>
+<p></p>
+<p><span style="font-style:italic">Now, what is new in 1.2?</span></p>
+<p>A lot of minor changes provide an easier overall usage of TuxCards. For details look at &quot;Improvments in Detail&quot;; here are some key features:</p>
+<ul type="circle"><li>Entry <span style="font-weight:600">History</span>. It does work like a history within a web browser; the last visited entries are remembered.</li>
+<li><span style="font-weight:600">Encryption</span> using MD5 and BlowFish. The encrypted data is stored using Base64 encoding.</li>
+<li>Selection of information format (rtf, txt) for newly created entries.</li>
+<li>Inplace renaming of entries within the tree.</li>
+<li><span style="font-weight:600">Customized line break mode</span>. Keys for creating a new line or new paragraph within the editor may be selected.</li>
+<li>Much better <span style="font-weight:600">paste algorithm</span> for pasting text within the editor.</li>
+<li>Improved <span style="font-weight:600">HTML export</span>.</li>
+<li>Several new <span style="font-weight:600">keyboard shortcuts</span>.</li>
+<li>Nice Look &amp; Feel (supporting keramic style and <span style="font-weight:600">customizable icons</span>)<br />An alternative set of icons may already be downloaded from <span style="color:#0055ff">www.tuxcards.de</span>.</li>
+<li>Increased overall <span style="font-weight:600">stability</span>.</li></ul>
+<p>If you come up with an idea on who to make the usage of TuxCards even easier, if you know of a feature that you would like to see within a further version or if you created a wonderful iconset for TuxCards don't hesitate to mail to <span style="font-style:italic;color:#0055ff">tuxcards@gmx.net. </span></p>
+<p align="center">Enjoy TuxCards,<br />Alexander Theel</p>
+</body></html>
+]]></Information>
+  <InformationElement isOpen="false" informationFormat="RTF" expires="false" isEncripted="false" expiryDate="So Jun 22 2003" iconFileName="none" >
+   <Description>Improvements in Detail (V 1.2)</Description>
+   <Information><![CDATA[<html><head><meta name="qrichtext" content="1" /></head><body style="font-size:10pt;font-family:Adobe Helvetica">
+<p></p>
+<p align="center"><span style="font-weight:600">Detailed Feature List and bugs that have been removed:</span></p>
+<ul type="circle"><li>Entries</li>
+<ul type="disc"><li>The information format (rtf, txt) of new entries can be selected at creation time.</li>
+<li>If a new entry with an empty name is created, a dialog box asks wether the user really wants to asign an empty name.</li>
+<li>History function which remembers the last selected entries.<br />Keyboard shortcuts: <span style="font-style:italic">ALT+Cursor Left</span>, <span style="font-style:italic">ALT+Cursor Right.</span></li>
+<li>Encryption of entries with secure algorithms: MD5 and BlowFish. The encrypted data is stored using Base64 encoding.</li>
+<li>Bug removal within expired notes dialog. In a certain case an endless loop was executed.</li></ul></ul>
+<p></p>
+<ul type="circle"><li>Tree</li>
+<ul type="disc"><li>Inplace renaming of entries with <span style="font-style:italic">F2</span>.</li>
+<li>Accessing context menu via keyboard.</li></ul></ul>
+<p></p>
+<ul type="circle"><li>Editor</li>
+<ul type="disc"><li>Improved paste algorithm. Text that is selected with the mouse (i.e. within another program, xterm, etc.) may be inserted into the editor.</li>
+<li>Shortcuts for bold (<span style="font-style:italic">CTRL+B</span>), italic (<span style="font-style:italic">CTRL+I</span>), underline (<span style="font-style:italic">CTRL+U</span>), select all (<span style="font-style:italic">CTRL+A</span>).</li>
+<li>Customized line break mode. Keys for creating a new line or new paragraph within the editor may be adapted  in the options dialog.<br />Thus <span style="font-style:italic">CTRL+Enter</span> may be used for generating a new paragraph or a new line within an existing paragraph.</li></ul></ul>
+<p></p>
+<ul type="circle"><li>I/O</li>
+<ul type="disc"><li>Size of file written to disk is decreased by usage of CDATA sections within the XML output.</li>
+<li>HTML export does write the files of the individual entries within a separat directory.</li>
+<li>HTML export: If entries with identical names exist, files with the same name were produced, thus one file was overwritten by another one. This does not happen any more.</li>
+<li>HTML export: Indentation within the tree-html-file has been decreased. Now, the view of trees with large entry names is much more beautyful and easier to read.</li>
+<li>HTML export: If an entry name did include the character '/' which is not valid within filenames, then the HTML export of that entry did not work properly.</li></ul></ul>
+<p></p>
+<ul type="circle"><li>GUI</li>
+<ul type="disc"><li>Included support for keramic style.</li>
+<li>Customizable icons. The toolbar and menu icons may be exchanged at will. Simply, enter a directory within the options-dialog where your icons are located and restart TuxCards. Doing so, one icon or all icons may be exchanged.<br /><span style="font-style:italic">The following formats are supported:</span> xpm, png, jpg/jpeg, bmp, xbm, pnm, mng.<br /><span style="font-style:italic">Icons with the following file-names and one of the file-endings above are searched for:<br /></span>&quot;fileopen&quot;, &quot;filenew&quot;, &quot;filesave&quot;, &quot;fileprint&quot;, &quot;exit&quot;, &quot;addTreeElement&quot;, &quot;changeProperty&quot;, &quot;delete&quot;, &quot;lock&quot;, &quot;unlock&quot;, &quot;find&quot;, &quot;redo&quot;, &quot;undo&quot;, &quot;editcut&quot;, &quot;editcopy&quot;, &quot;editpaste&quot;, &quot;text_bold&quot;, &quot;text_italic&quot;, &quot;text_under&quot;, &quot;text_color&quot;, &quot;text_left&quot;, &quot;text_center&quot;, &quot;text_right&quot;, &quot;text_block&quot;, &quot;upArrow&quot;, &quot;downArrow&quot;, &quot;back&quot;, &quot;forward&quot;.</li></ul></ul>
+<p></p>
+<ul type="circle"><li>Misc</li>
+<ul type="disc"><li>Stability improvement, a great number of NULLPTR checks has been inserted.</li>
+<li>Before searching, the currently edited entry is saved within the internal database. Thus, changes within that entry that would result in different results when searching are recognized.</li>
+<li>Shortcuts - for word count (<span style="font-style:italic">CTRL+W</span>), date insertion (<span style="font-style:italic">CTRL+D</span>), time insertion (<span style="font-style:italic">CTRL+T</span>), searching (<span style="font-style:italic">CTRL+F</span>), switching between tree and editor <span style="font-style:italic">(F5)</span> - are added.</li>
+<li>The toolbars may be hidden. This reduces screen footprint.</li></ul></ul>
+</body></html>
+]]></Information>
+  </InformationElement>
+  <InformationElement isOpen="false" informationFormat="RTF" expires="false" isEncripted="false" expiryDate="So Jun 22 2003" iconFileName="none" >
+   <Description>Keyboard Actions</Description>
+   <Information><![CDATA[<html><head><meta name="qrichtext" content="1" /></head><body style="font-size:10pt;font-family:Adobe Helvetica">
+<p></p>
+<p align="center"><span style="font-weight:600">Hotkeys within TuxCards</span></p>
+<p>CTRL+S      		Save<br />F5 		Change Keyboard Input between 'tree' and 'editor'<br /><br />ALT + Cursor LEFT	History Backwards<br />ALT + Cursor RIGHT	History Forward<br /><br />CTRL+W		Word Count<br />CTRL+D		Date Insertion<br />CTRL+T		Time Insertion<br /><br />CTRL+F		Find / Search<br /><br /><br /><span style="font-style:italic">Within the tree (left side):<br /></span>INSERT 		Insert a new Entry<br />DELETE		Removes an Entry<br />F2		Inplace Renaming of the current active Entry<br />MENU                           (The menu key is located just left to the right CTRL-key.)<br />		Pops up the context menu.</p>
+<p><br /><span style="font-style:italic">Within the editor (right side):<br /></span>MENU                           (The menu key is located just left to the right CTRL-key.)<br />		Pops up the context menu.<span style="font-style:italic"><br /><br /></span>CTRL+ENTER / RETURN	- classical mode for inserting a simple linebreak<br />		- modern mode for inserting a new paragraph<br /><br />ENTER / RETURN	- classical mode for inserting a new paragraph<br />		- modern mode for inserting a simple linebreak</p>
+<p>CTRL+X    		Cut<br />CTRL+C    		Copy<br />CTRL+V    		Paste<br /><br />CTRL+Z    		Undo<br />CTRL+Y    		Redo<br /><br />CTRL+A		Select All</p>
+<p>CTRL+K    		Kill whole Line<br /><br />CTRL+B		Bold<br />CTRL+I		Italic<br />CTRL+U		Underline<br /></p>
+</body></html>
+]]></Information>
+  </InformationElement>
+  <InformationElement isOpen="false" informationFormat="RTF" expires="false" isEncripted="false" expiryDate="So Jun 29 2003" iconFileName="none" >
+   <Description>Requirements</Description>
+   <Information><![CDATA[<html><head><meta name="qrichtext" content="1" /></head><body style="font-size:10pt;font-family:Adobe Helvetica">
+<p></p>
+<p align="center"><span style="font-style:italic;font-weight:600">Requirements:</span><span style="font-weight:600"> </span></p>
+<p>You certainly need to use qt3.x.x.  If you want to use RTF, I personally recommend to install qt3.0.5, at least. Since qt3.0.4 does have a bug in formating linebreaks.</p>
+<p>I strongly recommend to use qt3.1.1 or above since the copying of text between notes has improved a lot.</p>
+<p></p>
+</body></html>
+]]></Information>
+  </InformationElement>
+  <InformationElement isOpen="false" informationFormat="RTF" expires="false" isEncripted="false" expiryDate="So Jun 22 2003" iconFileName="none" >
+   <Description>To come in Version 1.3</Description>
+   <Information><![CDATA[<html><head><meta name="qrichtext" content="1" /></head><body style="font-size:10pt;font-family:Adobe Helvetica">
+<p align="center">	</p>
+<p align="center"><span style="font-weight:600">What is planned for version 1.3?</span></p>
+<ul type="circle"><li>Be surprised!</li></ul>
+<p align="center"><span style="font-style:italic">If you want to stay up to date, I can inform you as soon as the next release is available. Just send an email with the subject &quot;subscribe&quot; to </span><span style="font-style:italic;color:#0055ff">tuxcards@gmx.net</span><span style="font-style:italic">.</span></p>
+<p></p>
+</body></html>
+]]></Information>
+  </InformationElement>
+  <InformationElement isOpen="false" informationFormat="RTF" expires="false" isEncripted="false" expiryDate="Mo Jun 14 2004" iconFileName="none" >
+   <Description>Donations</Description>
+   <Information><![CDATA[<html><head><meta name="qrichtext" content="1" /></head><body style="font-size:10pt;font-family:Adobe Helvetica">
+<p></p>
+<p align="center"><span style="font-weight:600;color:#aa007f">TuxCards 1.2 is published as Donationware</span></p>
+<p>You may use it freely and without charge as stated within the GPL.</p>
+<p>Do you like TuxCards and you want to enable the development of new features? Or do you want to ensure a high quality of future releases or simply compensate for ftp-server costs? Then you are welcome to donate EUR 5 to the author. (At your wish US$ 5 or an equivalent amount in your currency.)<br /><br />  <span style="font-style:italic">Please, use </span><span style="color:#0055ff">www.tuxcards.de/donations.html</span><span style="font-style:italic"> for a secure donation via internet.</span></p>
+<p>  <span style="font-style:italic">Or simply send a letter with your amount to<br /></span><br />	Alexander Theel<br />	Am Trommlerbusch 24 d<br />	02708 Loebau<br />	Germany<br /></p>
+</body></html>
+]]></Information>
+  </InformationElement>
+ </InformationElement>
+</InformationCollection>
