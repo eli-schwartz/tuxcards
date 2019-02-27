@@ -43,24 +43,24 @@ public:
    void                     setInformationCollection( CInformationCollection& collection );
    void                     clearCollection();
    bool                     isValid() const;
-   
+
    // Methods for standard one-dimensional models.
    virtual int              rowCount( const QModelIndex& parent = QModelIndex() ) const;
    virtual QVariant         data( const QModelIndex& index, int role = Qt::DisplayRole ) const;
    virtual QVariant         headerData( int section, Qt::Orientation orientation,
                                         int role = Qt::DisplayRole ) const;
-   
+
    //Methods for two-dimensional models.
    virtual int              columnCount( const QModelIndex& parent = QModelIndex() ) const;
-   
-   
+
+
    //Methods for hierarchical models.
    virtual bool             hasChildren( const QModelIndex& parent = QModelIndex() ) const;
    virtual QModelIndex      index( int row, int column,
                                    const QModelIndex& parent = QModelIndex() ) const;
    virtual QModelIndex      parent( const QModelIndex& index ) const;
-   
-   
+
+
    //Methods for editable models (data are allowed to be changed).
    virtual Qt::ItemFlags    flags( const QModelIndex& index ) const;
    virtual bool             setData( const QModelIndex& index, const QVariant& value, int iRole = Qt::EditRole );
@@ -74,7 +74,7 @@ public:
                                        const QColor&      descriptionColor,
                                        bool               bExpires,
                                        const QDate&       date,
-                                       
+
                                        int iRow, const QModelIndex& parent = QModelIndex()
                                      );
 
@@ -93,7 +93,7 @@ public:
    virtual QMimeData*       mimeData( const QModelIndexList & indexes ) const;
    virtual bool             dropMimeData( const QMimeData* pData, Qt::DropAction action,
                                           int iRow, int iColumn, const QModelIndex& parent );
-   
+
 private:
    CInformationCollection*  mpCollection;
 //   void                     setupModelData();
@@ -111,7 +111,7 @@ private:
                                             const QColor&      descriptionColor,
                                             bool               bExpires,
                                             const QDate&       date,
-            
+
                                             CInformationElement* pParentIE
                                           );
 };

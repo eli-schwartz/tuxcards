@@ -25,7 +25,7 @@
   */
 
 class CCommandLineOptions {
-public: 
+public:
   CCommandLineOptions(int argc, char** argv);
 
   static void printUsage();

@@ -29,13 +29,13 @@ class Cactus: public QObject{
 public:
 	Cactus(QWidget* displayComponent);
 	~Cactus();
-	
+
 	void paint( QPainter* p, const QRect& region );
 	void setFlowerDirectory( const QString& );
 
 signals:
    void triggerPaint();
-   
+
 public slots:
 	void run();
 
@@ -69,7 +69,7 @@ protected:
 
 	void drawEasterEgg();
 	void createNewPlant();
-	
+
 // from 'CactusParameters'
 	 /** Der Verzeichnisname, in dem sich alle Konfigurationsdateien/Bilder
   befinden.

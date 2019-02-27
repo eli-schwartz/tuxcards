@@ -84,7 +84,7 @@ bool CIconSelectorItem::isDir() const
 {
    if ( !mpItemFileInfo )
       return FALSE;
-      
+
    return mpItemFileInfo->isDir();
 }
 
@@ -94,7 +94,7 @@ bool CIconSelectorItem::isLink() const
 {
    if ( !mpItemFileInfo )
       return FALSE;
-      
+
    return mpItemFileInfo->isSymLink();
 }
 
@@ -135,12 +135,12 @@ void CIconSelectorItem::setIcon()
          pPixmap = static_pIconFile;
       }
    } // if done ( icon selected or created )
-   
+
 
    Q_ASSERT( NULLPTR != pPixmap );
    if ( !pPixmap )
       return;
-      
+
    QListWidgetItem::setIcon( QIcon( *pPixmap ) );
 }
 

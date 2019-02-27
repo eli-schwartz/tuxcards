@@ -172,10 +172,10 @@ void Cactus::createNewPlant()
 {
    if( mpCactusRootShoot != 0 )
       DELETE( mpCactusRootShoot );
-   
+
    mpCactusRootShoot=new CactusShoot();
    mpImageManager->applyFlower( mpCactusRootShoot );
-   
+
    easterEgg=false;
    state=GROWING;
 }
@@ -195,14 +195,14 @@ void Cactus::simulate()
       case GROWING:
          //solange versuchen zu wachsen, bis mindestens eine Stufe gewachsen
          while( mpCactusRootShoot->grow()==0 ){};
-			
+
          emit ( triggerPaint() );
 
          //Fertig mit wachsen? Dann ab jetzt Zustand blhend
          if(mpCactusRootShoot->isFinishedGrowing())
             state=FLOWERING;
          break;
-         
+
       case FLOWERING:
          mpCactusRootShoot->flower();
          emit ( triggerPaint() );
@@ -211,7 +211,7 @@ void Cactus::simulate()
          if ( mpCactusRootShoot->isFinishedFlowering() )
             state=FINISHED;
          break;
-         
+
       case FINISHED:
          createNewPlant();
          emit ( triggerPaint() );

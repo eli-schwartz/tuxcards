@@ -64,7 +64,7 @@ void CactusShoot::generalSettings(QColor c, int minRadius, int maxRadius, int ma
               int rad, int x, int y, bool back,
               double dd, int maxChildren, int depth, int stachelZahl)
 {
-	
+
   stachelFarbe      = QColor(0,0,0);
 	hasFlower         = false;
 	flowerHeight      = 0;
@@ -149,7 +149,7 @@ void CactusShoot::paint(QPainter* p, /*ImageObserver obs,*/ QPoint* location){
 
   //sich selbst darstellen
   paintSelf(p, /*obs,*/ location);
-	
+
   //alle �te vor sich drbermalen
   for (int i=0;i<noChildren;i++){
     if (!mpChildren[i]->back)
@@ -261,7 +261,7 @@ y+=2;
                                 yy + easterEggLocation.y, obs);
   }
 */
-}	
+}
 
 bool CactusShoot::isFinishedGrowing(){
   if (finishedGrowing)

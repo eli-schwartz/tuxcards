@@ -68,7 +68,7 @@ void CTreeElement::init( CTreeInformationElement& element )
   connect( &element, SIGNAL(propertyChanged()), this, SLOT(propertyChangeEvent()) );
   connect( &element, SIGNAL(childAdded(CInformationElement*)), this, SLOT(childAddEvent(CInformationElement*)) );
   connect( &element, SIGNAL(childMoved(int, int)), this, SLOT(childMovedEvent(int, int)) );
-  
+
 //  setRenameEnabled(0, TRUE);
 }
 
@@ -139,8 +139,8 @@ void CTreeElement::childAddEvent( CInformationElement* pChild )
    QList<CInformationElement*>* pList = pChild->getChildren();
    if ( !pList )
       return;
-      
-      
+
+
    CInformationElement* pX = NULLPTR;
    for ( int i = 0; i < pList->count(); i++ )
    {
@@ -278,4 +278,3 @@ CTreeElement* CTreeElement::findChildWithName( QString name )
 
   return NULLPTR;
 }
-

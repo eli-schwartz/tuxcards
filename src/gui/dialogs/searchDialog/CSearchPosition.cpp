@@ -16,7 +16,7 @@
  ***************************************************************************/
 #include "CSearchPosition.h"
 
-/** 
+/**
  * 'CTreeElement' should be used instead of 'QListViewItem' in future
  * 'x' is actually a 'CTreeElement', the 'CTreeElement' where we have found s.th.
  * 'pos':  the position within the document

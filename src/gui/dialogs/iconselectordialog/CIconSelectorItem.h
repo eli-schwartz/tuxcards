@@ -31,7 +31,7 @@ class CIconSelectorItem : public QListWidgetItem
 public:
    CIconSelectorItem( QListWidget* pParent, QFileInfo* pFI );
    virtual ~CIconSelectorItem();
-   
+
    QString                    filename() const { return msItemFileName; }
    bool                       isDir() const;
    bool                       isLink() const;

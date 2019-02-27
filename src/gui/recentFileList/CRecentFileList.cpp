@@ -59,7 +59,7 @@ void CRecentFileList::createActions( QWidget* pParent )
         pAction = new QAction( pParent );
         pAction->setVisible( false );
         connect( pAction, SIGNAL(triggered()), this, SLOT(slotOpenRecentFile()) );
-        
+
         mpRecentlyFilesMenu->addAction( pAction );
         mRecentFileActs.append( pAction );
    }
@@ -75,7 +75,7 @@ void CRecentFileList::setOnTop( const QString& sAbsPath )
 {
    remove( sAbsPath );
    mFileList.prepend( sAbsPath );
-   
+
    update();
 }
 
@@ -161,8 +161,8 @@ void CRecentFileList::slotOpenRecentFile()
    QAction* pAction = qobject_cast<QAction*>( sender() );
    if ( !pAction )
       return;
-      
-      
+
+
    QString sFileName = pAction->data().toString();
 
    if ( QFile::exists(sFileName) )
@@ -215,7 +215,7 @@ void CRecentFileList::createComboBox( QWidget& parentWidget )
 {
    if ( mpComboBox )
       DELETE( mpComboBox );
-      
+
    mpComboBox = new QComboBox( &parentWidget );
    connect( mpComboBox, SIGNAL( activated( int ) ),
             this, SLOT( slotRecenlyOpenedFilesActivated( int ) ) );
@@ -232,7 +232,7 @@ void CRecentFileList::updateComboBox()
 {
    if ( !mpComboBox )
       return;
-      
+
    mpComboBox->clear();
    mpComboBox->addItems( mFileList );
 }
@@ -244,4 +244,3 @@ QString CRecentFileList::toString() const
 {
    return mFileList.join( SEPARATOR );
 }
-

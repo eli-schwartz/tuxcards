@@ -38,14 +38,14 @@ CConfigurationDialog::CConfigurationDialog( QWidget* parent, CTuxCardsConfigurat
    ui.mpLineBreakGroupBox->setVisible( FALSE );
 
    setModal( TRUE );
-  
+
    connect( ui.mpTopColorButton,    SIGNAL(clicked()), this, SLOT(slotChangeTopColor()) );
    connect( ui.mpBottomColorButton, SIGNAL(clicked()), this, SLOT(slotChangeBottomColor()) );
    connect( ui.mpTextColorButton,   SIGNAL(clicked()), this, SLOT(slotChangeTextColor()) );
 
    connect( ui.mpChangeTreeFontButton, SIGNAL(clicked()), this, SLOT(slotChangeTreeFont()) );
    connect( ui.mpChangeEditorFontButton, SIGNAL(clicked()), this, SLOT(slotChangeEditorFont()) );
-   
+
    connect( this, SIGNAL(accepted()), this, SLOT(changeProperties()) );
 
    // TODO: ToolTips are still missing within the configuration dialog.
@@ -60,7 +60,7 @@ void CConfigurationDialog::addCactusBarToDialog()
                                                 //       CColorBar width and thus
                                                 //       the painting of it is not
                                                 //       yet correct.
-                                                
+
    ui.mpPlaceHolder->setLayout( pLayout );
    //CColorBar* pCB = new CColorBar( 0, QColor(0,0,0),QColor(33,72,170), "Tux","Cards");
    mpCactusBarPreview = new CCactusBar( 0, QColor(0,0,0),QColor(33,72,170), "Tux","Cards");
@@ -87,7 +87,7 @@ int CConfigurationDialog::setUp()
    QString sCommand = mrefConfig.getStringValue( CTuxCardsConfiguration::S_EXECUTE_STATEMENT );
    ui.mpExecuteCommandGroupBox->setChecked( !sCommand.isEmpty() );
    ui.mpCommandLineEdit       ->setText( sCommand );
-   
+
    ui.mpIconDirectoryLineEdit ->setText( mrefConfig.getStringValue( CTuxCardsConfiguration::S_ICON_DIR ) );
    ui.mpAutoEncryptCheckBox   ->setChecked( mrefConfig.getBoolValue( CTuxCardsConfiguration::B_AUTOENCRYPT_ENTRY ) );
 
@@ -407,12 +407,12 @@ QString CConfigurationDialog::calculateFontString( const QFont& f ) const
 void CConfigurationDialog::chooseFlowerDir()
 // -------------------------------------------------------------------------------
 {
-	QString s = QFileDialog::getExistingDirectory( this, 
+	QString s = QFileDialog::getExistingDirectory( this,
 						"Select a Flower-Directory", getFlowerDir() );
 	if( s.isEmpty() ) return;
-	
+
 	ui.mpFlowerDirectoryLineEdit->setText(s);
-   
+
    // TODO: The flower directory is not really used yet.
 }
 
@@ -420,7 +420,7 @@ void CConfigurationDialog::chooseFlowerDir()
 //	autosaveCheckBox->setChecked(true);
 //	saveMinutes->setText(QString::number(15)); saveMinutes->setEnabled(true);
 //	saveWhenLeaving->setChecked(false);          label->setEnabled(true);
-//	
+//
 //	topColor->setPalette(QColor(0,0,0));
 //	bottomColor->setPalette(QColor(143,0,0));
 //	textOne->setText("Tux");
@@ -439,7 +439,7 @@ void CConfigurationDialog::slotApplyChangesToCactusBarPreview()
         || !ui.mpFirstTextLineLineEdit ||!ui.mpSecondTextLineLineEdit
         || !ui.mpTextColorButton )
       return;
-      
+
    mpCactusBarPreview->change( ui.mpTopColorButton->palette().color( QPalette::Button ),
                                ui.mpBottomColorButton->palette().color( QPalette::Button ),
                                ui.mpFirstTextLineLineEdit->text(),

@@ -72,11 +72,11 @@ private slots:
    virtual void slotChangeTopColor();
    virtual void slotChangeBottomColor();
    virtual void slotChangeTextColor();
-   
+
    virtual void slotChangeTreeFont();
    void         slotChangeEditorFont();
    virtual void chooseFlowerDir();
-   
+
    virtual void changeProperties();
 
    void         slotApplyChangesToCactusBarPreview();

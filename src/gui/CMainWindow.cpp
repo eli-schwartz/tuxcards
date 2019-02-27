@@ -451,7 +451,7 @@ void CMainWindow::settingUpStatusBar( void )
    mpStatusBar_TextFormatLabel->setAlignment( Qt::AlignCenter );
    mpStatusBar_TextFormatLabel->setFixedWidth( 45 );
    pStatusBar->addPermanentWidget( mpStatusBar_TextFormatLabel );
-   
+
    // change label
    mpStatusBar_ChangeLabel = new QLabel();
    Q_ASSERT( NULLPTR != mpStatusBar_ChangeLabel );
@@ -1030,7 +1030,7 @@ void CMainWindow::setEditListStyle( int iStyleIndex )
 
       cursor.beginEditBlock();          // ******** edit start *************
 
-      QTextBlockFormat blockFmt = cursor.blockFormat();   
+      QTextBlockFormat blockFmt = cursor.blockFormat();
       QTextListFormat listFmt;
 
       if ( cursor.currentList() )
@@ -1044,7 +1044,7 @@ void CMainWindow::setEditListStyle( int iStyleIndex )
          cursor.setBlockFormat( blockFmt );
       }
 
-      listFmt.setStyle( style );   
+      listFmt.setStyle( style );
       cursor.createList( listFmt );
 
       cursor.endEditBlock();            // ******** edit end ***************
@@ -1224,7 +1224,7 @@ void CMainWindow::textBlock()
 // // -------------------------------------------------------------------------------
 // {
 //    QString configurationFileName = QDir::homePath() + "/.tuxcards";
-// 
+//
 //    ConfigParser parser( configurationFileName, FALSE );
 //    parser.setGroup("General");
 //    QString version   = parser.readEntry("Version",   "previousVersion");
@@ -1234,7 +1234,7 @@ void CMainWindow::textBlock()
 //       // write datafile
 //       QFile file( QDir::homePath() + "/" + TUX_GREETING_FILE );
 //       QTextStream* pLog = NULLPTR;
-// 
+//
 //       if( !file.open(QIODevice::WriteOnly) )
 //       {
 //       std::cerr<<"TuxCards - cannot write to "<<configurationFileName.toStdString()<<"\n";
@@ -1242,14 +1242,14 @@ void CMainWindow::textBlock()
 //       else
 //       {
 //       pLog = new QTextStream(&file);
-// 
+//
 //       QTextCodec* pCodec = QTextCodec::codecForName( "UTF-8" );
 //       if ( pLog && pCodec )
 //          pLog->setCodec( pCodec );
 //       }
-// 
+//
 //       *pLog<<sGreetingsText;
-// 
+//
 //       file.close();
 //       DELETE( pLog );
 //    }
@@ -2102,7 +2102,7 @@ void CMainWindow::applyConfiguration()
 //       if ( mConfiguration.getBoolValue( CTuxCardsConfiguration::B_LINEBREAK_WITH_CTRL_SHIFT ))
 //          mpEditor->setLinebreakMode( LINEBREAK_WITH_CTRL_SHIFT );
 //       else
-//          mpEditor->setLinebreakMode( LINEBREAK_WITHOUT_CTRL_SHIFT );         
+//          mpEditor->setLinebreakMode( LINEBREAK_WITHOUT_CTRL_SHIFT );
    }
 
    // tree
@@ -2131,7 +2131,7 @@ void CMainWindow::applyConfigurationAfterShow()
 {
    if ( !mpTree )
       return;
-      
+
    mpTree->verticalScrollBar()->setValue(
        mConfiguration.getIntValue( CTuxCardsConfiguration::I_TREE_VSCROLLBAR_VALUE ) );
 
@@ -2204,7 +2204,7 @@ void CMainWindow::makeVisible( const CSearchPosition* const pPosition )
       QTextCursor cursor = mpEditor->textCursor();
       cursor.setPosition( pPosition->getPos() );
       cursor.movePosition( QTextCursor::NextCharacter, QTextCursor::KeepAnchor, pPosition->getLen() );
-      mpEditor->setTextCursor( cursor ); 
+      mpEditor->setTextCursor( cursor );
    }
 
    this->activateWindow();

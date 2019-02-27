@@ -46,7 +46,7 @@ bool InformationFormat::equals( InformationFormat* pAnotherFormat )
 {
    if ( !pAnotherFormat )
       return false;
-      
+
    return ( toString() == pAnotherFormat->toString() );
 }
 
@@ -93,10 +93,10 @@ InformationFormat* InformationFormat::getByString( const QString& sFormat )
       NONE  = new InformationFormat( "NONE",  QImage(format_none_xpm)  );
       ASCII = new InformationFormat( "ASCII", QImage(format_ascii_xpm) );
       RTF   = new InformationFormat( "RTF",   QImage(format_rtf_xpm)   );
-      
+
       static_bInitializationDone = true;
    }
-   
+
   if ( sFormat == "RTF")
     return RTF;
   else if ( sFormat == "ASCII")

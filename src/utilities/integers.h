@@ -22,4 +22,3 @@ public:
   static int abs(int);
 };
 #endif
-

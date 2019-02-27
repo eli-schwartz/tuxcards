@@ -22,12 +22,11 @@
 class Strings{
 public:
   static QString spaces(int n=0);
-  
+
   static int wordCount( QString sText="" );
 
   static QString removeAndReturnFirstLine(QString& s);
-  
+
   static QString removeHTMLTags(const QString sText="");
 };
 #endif
-

@@ -21,7 +21,7 @@
 class IHistoryListener{
 public:
    virtual ~IHistoryListener(){};
-   
+
 
 
    /**
@@ -36,4 +36,3 @@ public:
    virtual void historyStatusChanged( bool bHasPreviousElement, bool bHasNextElement ) = 0;
 };
 #endif
-

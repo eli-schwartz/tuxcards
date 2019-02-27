@@ -242,7 +242,7 @@ QModelIndex CCollectionModel::index( int row, int column,
    {
       // The parent index is not valid. -> The root element is requested.
       //Q_ASSERT( 0 == row );  // Don't do this assert (with qt4.4.3 and mac 'row' will
-                               // be '-1' for new files; which leads to an assertion).      
+                               // be '-1' for new files; which leads to an assertion).
       return createIndex( 0,0, mpCollection->getRootElement() );
    }
 
@@ -422,12 +422,12 @@ QModelIndex CCollectionModel::mapPathToIndex( const Path& path ) const
 
    if ( !hasChildren() )
       return QModelIndex();
-   
+
    QStringList list = path.getPathList();
    QModelIndex rootIndex = index( 0,0 );
    if ( getIEDescription( rootIndex ) != list[0] )
       return QModelIndex();
-      
+
 
    QModelIndex index = rootIndex;
    for ( int i = 1; i < list.size(); i++ )
@@ -559,7 +559,7 @@ bool CCollectionModel::insertRow( const QString&     sDescription,
    if ( !pNewElement )
       return FALSE;
 
-      
+
    beginInsertRows( parent, iRow, iRow );  // begin insertion
    pParentIE->addChild( pNewElement );
    endInsertRows();                        // end insertion
@@ -582,7 +582,7 @@ CTreeInformationElement*
                                        const QColor&      descriptionColor,
                                        bool               bExpires,
                                        const QDate&       date,
-      
+
                                        CInformationElement* pParentIE
                                      )
 // -------------------------------------------------------------------------------
@@ -595,7 +595,7 @@ CTreeInformationElement*
    Q_ASSERT( NULLPTR != pParentIE );
    if ( !pParentIE )
       return NULLPTR;
-      
+
    // create default entry which will be added to the current entry as child
    CTreeInformationElement* pNewElement = new CTreeInformationElement( pParentIE,
                                                                        sDescription,
@@ -637,7 +637,7 @@ bool CCollectionModel::removeRow( int iRow, const QModelIndex& parent )
    beginRemoveRows( parent, iRow, iRow );  // begin removal
    pParentIE->removeChild( iRow );
    endRemoveRows();                        // end removal
-   
+
    return TRUE;
 }
 
@@ -720,7 +720,7 @@ QMimeData* CCollectionModel::mimeData( const QModelIndexList& indexes ) const
 // -------------------------------------------------------------------------------
 {
    //std::cout<<"CCollectionModel::mimeData()"<<std::endl;
-   
+
    Q_ASSERT( NULLPTR != mpCollection );
    if ( !mpCollection )
       return NULLPTR;
@@ -751,7 +751,7 @@ QMimeData* CCollectionModel::mimeData( const QModelIndexList& indexes ) const
 
    QMimeData* pMimeData = new QMimeData();
    pMimeData->setData( TUXCARDS_DRAGDROP_TYPE, encodedData );
-   
+
    return pMimeData;
 }
 
@@ -775,7 +775,7 @@ bool CCollectionModel::dropMimeData( const QMimeData* pData, Qt::DropAction,
    if ( !pData )
       return FALSE;
 
-   
+
    if ( !parent.isValid() )
       return FALSE;
 
@@ -788,7 +788,7 @@ bool CCollectionModel::dropMimeData( const QMimeData* pData, Qt::DropAction,
    //QStringList possibleDropFormats = pData->formats();
    //foreach ( QString sFormat, possibleDropFormats )
    //   std::cout<<"   - "<<sFormat.toStdString()<<std::endl;
-   
+
    // create a new entry from plain text
    if ( pData->hasFormat("text/plain") )
    {
@@ -810,9 +810,9 @@ bool CCollectionModel::dropMimeData( const QMimeData* pData, Qt::DropAction,
 
       if ( !pNewElement )
          return FALSE;
-   
+
       pNewElement->setInformation( sInformationString );
-      
+
       beginInsertRows( parent, iRow, iRow );  // begin insertion
       pParentTIE->addChild( pNewElement );
       endInsertRows();                        // end insertion
@@ -827,20 +827,20 @@ bool CCollectionModel::dropMimeData( const QMimeData* pData, Qt::DropAction,
       CInformationCollection* pCollection = XMLPersister::createInformationCollection( sDropData );
       if ( !pCollection )
          return FALSE;
-         
+
       CInformationElement* pRoot = pCollection->getRootElement();
       CTreeInformationElement* pTIE = dynamic_cast<CTreeInformationElement*>(pRoot);
 
       Q_ASSERT( NULLPTR != pTIE );
       if ( !pTIE )
          return FALSE;
-   
+
       beginInsertRows( parent, iRow, iRow );  // begin insertion
       pParentTIE->addChild( pTIE );
       endInsertRows();                        // end insertion
 
       //std::cout<<"CCollectionModel::dropMimeData() - entry moved"<<std::endl;
    }
-   
+
    return TRUE;
 }

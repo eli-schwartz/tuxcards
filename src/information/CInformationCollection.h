@@ -39,30 +39,30 @@ public:
 
    void             setAbsFileName( const QString& sAbsFileName );
    const QString&   getAbsFileName() const;
-   
+
    // ************* IParent - End ***********************************
    virtual QString  getDescription( void ) const;
    virtual IParent* getParent( void ) const;
    virtual void     removeChild( CInformationElement* pChild );
    virtual void     aboutToRemoveElement( CInformationElement* pIE );
    // ************* IParent - End ***********************************
-   
+
    void setRootElement( CInformationElement* pRoot );
    CInformationElement* getRootElement( void ) const;
-   
+
    void setActiveElement( CInformationElement* pElement );
    void setActiveElement( Path path );
    CInformationElement* getActiveElement( void );
    CInformationElement* getInformationElement( Path path );
    bool isPathValid( Path path );
-   
+
    void registerAsListenerOf( CInformationElement* pElem );
-   
+
    QString toString( void );
    QString toXML( void );
    QString toXML( CInformationElement* );
-   
-   
+
+
    void addView( IView* pView );
    void removeView( IView* pView );
 
@@ -77,7 +77,7 @@ public slots:
 private:
    CInformationElement* mpRootElement;
    CInformationElement* mpActiveElement;
-   
+
    QList<IView*> mViews;
    void notifyViewsToRemoveElement( CInformationElement* pIE );
 

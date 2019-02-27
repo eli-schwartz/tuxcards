@@ -46,16 +46,16 @@ int Strings::wordCount( QString sText )
    sText = sText.simplified();
    if ( sText.isEmpty() )
       return 0;
-   
+
    int iWords = 0;
    int iCurrentPos = 1;
-   
+
    while ( (iCurrentPos = sText.indexOf(" ", iCurrentPos) +1) > 0 )
    {
       iWords++;
    }
    iWords++;
-   
+
    return iWords;
 }
 
@@ -89,17 +89,17 @@ QString Strings::removeHTMLTags(const QString sText)
 // -------------------------------------------------------------------------------
 {
    QString sRetVal = sText;
-   
+
    sRetVal.replace(QRegExp("<br />"), " ");
    sRetVal.replace(QRegExp("<li"), " <li");        // in order to count the words in a list correctly
-   
+
    int iTagStart = sRetVal.indexOf("<");
    int iTagEnd = 0;
    while ( iTagStart >= 0 )
    {
       iTagEnd = sRetVal.indexOf(">", iTagStart);
       sRetVal = sRetVal.remove(iTagStart, iTagEnd-iTagStart+1);
-   
+
       // prepare next turn
       iTagStart = sRetVal.indexOf("<");
    }
@@ -109,7 +109,7 @@ QString Strings::removeHTMLTags(const QString sText)
    // replace existing encoded tags
    sRetVal.replace(QRegExp("&lt;"), "<");
    sRetVal.replace(QRegExp("&gt;"), ">");
-   
+
    //std::cout<<"___"<<retVal<<"___"<<std::endl;
    return sRetVal;
 }

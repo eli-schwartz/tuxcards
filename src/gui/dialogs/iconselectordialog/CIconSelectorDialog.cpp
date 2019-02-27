@@ -27,7 +27,7 @@ CIconSelectorDialog* CIconSelectorDialog::static_pInstance = NULLPTR;
 // -------------------------------------------------------------------------------
 CIconSelectorDialog::CIconSelectorDialog( QWidget* pParent )
  : QDialog ( pParent )
-// ------------------------------------------------------------------------------- 
+// -------------------------------------------------------------------------------
 {
    ui.setupUi( this );
    ui.pDirectoryUpButton->setIcon( QApplication::style()->standardIcon( QStyle::QStyle::SP_FileDialogToParent ) );
@@ -35,7 +35,7 @@ CIconSelectorDialog::CIconSelectorDialog( QWidget* pParent )
    connect( ui.pDirectoryUpButton, SIGNAL( clicked() ), this, SLOT( cdUp() ) );
    connect( ui.pList, SIGNAL( itemDoubleClicked(QListWidgetItem*) ), this, SLOT( itemDoubleClicked(QListWidgetItem*) ) );
    connect( ui.pList, SIGNAL( itemClicked(QListWidgetItem*) ), this, SLOT( fileSelected(QListWidgetItem*) ) );
-   
+
    readDirectory( QDir::current().absolutePath() );
 }
 
@@ -85,14 +85,14 @@ void CIconSelectorDialog::fileSelected( QListWidgetItem* pItem )
 // -------------------------------------------------------------------------------
 {
    CIconSelectorItem* pISItem = dynamic_cast<CIconSelectorItem*>( pItem );
-   
+
    Q_ASSERT( (NULLPTR != pISItem) && (NULLPTR != ui.pIconNameLineEdit) );
    if ( !pISItem || !ui.pIconNameLineEdit )
       return;
-      
+
    if ( pISItem->isDir() || pISItem->isLink() )
       return;
-      
+
    ui.pIconNameLineEdit->setText( pISItem->text() );
 }
 
@@ -102,7 +102,7 @@ void CIconSelectorDialog::setPathForComboBox()
 {
    QString sDir = mCurrentDir.absolutePath();
    int iIndex = ui.pDirectoryComboBox->findText( sDir );
-   
+
    if ( -1 == iIndex )
    {
       ui.pDirectoryComboBox->addItem( sDir );
@@ -118,7 +118,7 @@ void CIconSelectorDialog::itemDoubleClicked( QListWidgetItem* pItem )
 // -------------------------------------------------------------------------------
 {
    CIconSelectorItem* pISItem = dynamic_cast<CIconSelectorItem*>( pItem );
-   
+
    Q_ASSERT( NULLPTR != pISItem );
    if ( !pISItem )
       return;
@@ -141,7 +141,7 @@ void CIconSelectorDialog::progressBar_startReadDir( int iDirCount )
 {
    if ( !ui.pProgressBar )
       return;
-      
+
    ui.pProgressBar->reset();
    ui.pProgressBar->setMaximum( iDirCount );
    ui.pProgressBar->setVisible( TRUE );
@@ -153,7 +153,7 @@ void CIconSelectorDialog::progressBar_readNextDir()
 {
    if ( !ui.pProgressBar )
       return;
- 
+
    int i = ui.pProgressBar->value();
    ui.pProgressBar->setValue( ++i );
 }
@@ -164,7 +164,7 @@ void CIconSelectorDialog::progressBar_readDirDone()
 {
    if ( !ui.pProgressBar )
       return;
-      
+
    ui.pProgressBar->setValue( ui.pProgressBar->maximum() );
    ui.pProgressBar->setVisible( FALSE );
 }
@@ -189,23 +189,23 @@ void CIconSelectorDialog::readDirectory( const QDir& dir )
 
    ui.pList->clear();
    directoryChanged( dir.absolutePath() );
-   
+
    const QFileInfoList& filist = dir.entryInfoList( QDir::NoFilter, QDir::DirsFirst | QDir::Name );
-   
+
    progressBar_startReadDir( filist.count() );
-   
+
    QListIterator<QFileInfo> it( filist );
-   
+
    QFileInfo fi;
    while( it.hasNext() )
    {
          fi = it.next();
          if( fi.fileName() == ".." && ( fi.absolutePath() == "/" || fi.absolutePath().isEmpty() ) )
             continue;
-      
+
          progressBar_readNextDir();
          (void) new CIconSelectorItem( ui.pList, new QFileInfo( fi ) );
       }//while
-   
+
    progressBar_readDirDone();
 }

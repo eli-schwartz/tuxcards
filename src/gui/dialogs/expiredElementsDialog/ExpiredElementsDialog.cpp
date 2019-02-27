@@ -38,13 +38,13 @@ ExpiredElementsDialog::ExpiredElementsDialog( QWidget* pParent )
 {
    setModal( TRUE );
    ui.setupUi(this);
-   
+
    connect( ui.pExpiryList, SIGNAL(clicked(Q3ListViewItem*)), this, SLOT(previewEntry(Q3ListViewItem*)) );
    connect( ui.pRemoveFromListButton, SIGNAL(clicked()), this, SLOT(removeSelectedItemsFromDeletionList()) );
 
    connect( ui.buttonOk, SIGNAL(clicked()), this, SLOT(deleteRemainingEntries()) );
-   
-   
+
+
    // context menu
    mContextMenu.addAction( getIcon("changeProperty"), "Change Properties...",this, SLOT(slotChangeActiveElementProperties()) );
    connect( ui.pExpiryList, SIGNAL(contextMenuRequested(Q3ListViewItem*,const QPoint&,int)),this, SLOT(slotShowContextMenu()) );
@@ -120,7 +120,6 @@ void ExpiredElementsDialog::removeSelectedItemsFromDeletionList( void )
    if ( NULLPTR == ui.pExpiryList )
       return;
 
-   
    QList<QTreeWidgetItem*> selectedItemList = ui.pExpiryList->selectedItems();
    QTreeWidgetItem*     pTreeItem;
    CInformationElement* pElement;
@@ -135,9 +134,9 @@ void ExpiredElementsDialog::removeSelectedItemsFromDeletionList( void )
             pElement->setExpiryDate( false );      // remove expiry date
          }
       }
-      
+
       expiredElementsMap.remove( pTreeItem );      // remove from dictionary
-      
+
       DELETE( pTreeItem );
    }
 
@@ -188,7 +187,7 @@ void ExpiredElementsDialog::previewEntry( CInformationElement* pElement )
    ui.pElementIconLabel->setPixmap( QPixmap(pElement->getIconFileName()) );
    ui.pElementNameLabel->setText( pElement->getDescription() );
    ui.pChildCountLabel->setText( QString::number( pElement->childCount() ) );
-   
+
    if ( pElement->getInformationFormat()->equals( InformationFormat::ASCII ) )
       ui.pTextEdit->setPlainText( pElement->getInformation() );
    else
@@ -202,13 +201,13 @@ void ExpiredElementsDialog::deleteRemainingEntries( void )
    //std::cout<<"ExpiredElementsDialog::deleteRemainingEntries()"<<std::endl;
    if ( !ui.pExpiryList )
       return;
-   
-   
+
+
    QTreeWidgetItem* pX;
    while ( 0 < ui.pExpiryList->topLevelItemCount() )
    {
       pX = ui.pExpiryList->topLevelItem( 0 );
-      
+
       CInformationElement* pElement = expiredElementsMap.value( pX );
 
       // It could be the case that the parent of this element was deleted
@@ -235,15 +234,15 @@ void ExpiredElementsDialog::slotChangeActiveElementProperties()
 {
    if ( !ui.pExpiryList )
       return;
-      
+
    QTreeWidgetItem* pCurrentItem = ui.pExpiryList->currentItem();
    if ( !pCurrentItem )
       return;
-   
+
    CPropertyDialog* pDialog = CPropertyDialog::getInstance();
    if ( !pDialog )
       return;
-   
+
    CInformationElement* pElement = expiredElementsMap.value( pCurrentItem );
    Q_ASSERT( NULLPTR != pElement );
    pDialog->setUp( pElement, CPropertyDialog::MODE_CHANGE_PROPERTIES );

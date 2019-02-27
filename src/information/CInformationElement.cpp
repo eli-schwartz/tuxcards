@@ -521,7 +521,7 @@ QString CInformationElement::extractSearchLine( const QTextCursor& c ) const
    int iOrgPosition = cursor.position();
    //std::cout<<"\t[anchor="<<cursor.anchor()<<",pos="<<cursor.position()<<"]"<<std::endl;
 
-   // get some context for the found string (i.e. some words before and after the found string) 
+   // get some context for the found string (i.e. some words before and after the found string)
    cursor.movePosition( QTextCursor::PreviousWord, QTextCursor::MoveAnchor, iWORDS_BEFORE );
    cursor.movePosition( QTextCursor::NextWord, QTextCursor::KeepAnchor, iWORDS_BEFORE + iWORDS_AFTER );
    //std::cout<<"\t[anchor="<<cursor.anchor()<<",pos="<<cursor.position()<<"]"<<std::endl;

@@ -27,7 +27,7 @@ class CIconSelectorDialog : public QDialog {
 public:
    static CIconSelectorDialog*   getInstance( QWidget* pParent );
    QString                       getIconFileName() const;
-   
+
 private slots:
    void                          cdUp();
    void                          itemDoubleClicked( QListWidgetItem* pItem );
@@ -44,9 +44,9 @@ private:
    void                          progressBar_startReadDir( int iDirCount );
    void                          progressBar_readNextDir();
    void                          progressBar_readDirDone();
-   
+
    QDir                          mCurrentDir;
-   
+
    Ui::ISelectorDialog           ui;
 };
 

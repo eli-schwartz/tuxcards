@@ -27,16 +27,16 @@
 #include <QList>
 
 class CactusShoot {
-public: 
+public:
 	CactusShoot();
 	~CactusShoot();
-	
+
 	void paint(QPainter* p, /*ImageObserver obs,*/ QPoint* location);
 	bool isFinishedGrowing();
 	bool isFinishedFlowering();
 	void flower();
 	int  grow();
-	
+
  	/**die Bilder fuer die Blueten (transparente GIFs)*/
   static QList<QImage*> flowers;
 
@@ -49,7 +49,7 @@ protected:
               double dd,int maxChildren,int depth, int stachelZahl);
 
   void createChild();
-	
+
 private:
 	static QColor INITIAL_COLOR;
   static const int STACHELZAHL    =  4; //Anzahl an Stacheln auf der Vorderseite
@@ -86,7 +86,7 @@ private:
 	QColor   stachelFarbe;
 	int stachelZahl;
 	bool  back;
-	
+
 	bool hasFlower;
 	int  flowerHeight;
 	int  flowerDelay;
@@ -94,7 +94,7 @@ private:
 	int  flowerSize;
 	bool finishedFlowering;
 	bool finishedGrowing;
-	
+
 	void paintSelf(QPainter* p, /*ImageObserver obs,*/ QPoint* location);
 
 protected:

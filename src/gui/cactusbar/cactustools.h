@@ -22,7 +22,7 @@
 class CactusTools {
 public:
 	~CactusTools();
-	
+
    static bool fifty();
    static bool ranPercent(int percent);
    static int  ran(int min,int max);
@@ -30,7 +30,7 @@ public:
    static int  ranUpper(int min,int max);
    static int  min(int x,int y);
    static int  max(int x,int y);
-	
+
 private:
 	CactusTools();
 

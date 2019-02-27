@@ -83,7 +83,7 @@ void CEditor::setText( const QString& sText )
 // -------------------------------------------------------------------------------
 {
    SEMAPHORE_TEXT_WAS_SET = TRUE;
-   
+
    if ( mbUseRichText )
       setHtml( sText );
    else
@@ -140,7 +140,7 @@ void CEditor::setEditorFont( const QFont& f )
          // (Just remebering the cursor and setting it does not work with qt4.3.1
          //  there is in error within the implementation or documentation.)
          int iCursorPos = textCursor().position();
-         
+
          writeCurrentTextToActiveInformationElement();
          setText( mpActiveElement->getInformation() );
 
@@ -239,7 +239,7 @@ void CEditor::writeCurrentTextToActiveInformationElement( void )
 // //    if ( mbUseRichText )
 // //    {
 // // 	   QMessageBox::information( this, "Debugging", QString("<b>Richtext</b><p>")
-// // 		                         + "vorher: Text [" 
+// // 		                         + "vorher: Text ["
 // // 								 + toHtml()
 // // 								 + "<br>]"
 // // 							 , "Ok" );
@@ -247,7 +247,7 @@ void CEditor::writeCurrentTextToActiveInformationElement( void )
 // //    else
 // //    {
 // // 	   QMessageBox::information( this, "Debugging", QString("<b>Plaintext</b><p>")
-// // 		                         + "vorher: Text [" 
+// // 		                         + "vorher: Text ["
 // // 								 + toPlainText()
 // // 								 + "<br>]"
 // // 							 , "Ok" );

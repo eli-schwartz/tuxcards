@@ -22,11 +22,11 @@
 #include <qfont.h>
 
 class FontSettings {
-public: 
+public:
 	FontSettings();
   FontSettings(QString family, int size, bool bold,
                bool italic, bool underline, bool strikeout);
-  QFont toFont();               
+  QFont toFont();
 
   QString getFamily();
   int     getSize();

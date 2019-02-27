@@ -38,7 +38,7 @@ CEncryptedEntryView::CEncryptedEntryView( QWidget* pParent )
    QVBoxLayout* pLayout = new QVBoxLayout( this );
    pLayout->setMargin( 10 );
    pLayout->setSpacing( 5 );
-   
+
    QLabel* pLabel = new QLabel( this );
    mpPasswdLine  = new QLineEdit( this );
    mpResultLabel  = new QLabel( this );

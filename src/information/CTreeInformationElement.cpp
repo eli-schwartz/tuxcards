@@ -211,7 +211,6 @@ void CTreeInformationElement::moveChildOneUp( CTreeInformationElement* pChild )
       return;
    }
 
-   
    mpChildObjects->removeAt( pos );            // do not kill the pointer
    mpChildObjects->insert( pos-1, pChild );
 
@@ -260,4 +259,3 @@ void CTreeInformationElement::moveChildOneDown( CTreeInformationElement* pChild 
 
    //std::cout<<getTreeString(1)<<std::endl;
 }
-

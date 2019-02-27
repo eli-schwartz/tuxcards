@@ -41,18 +41,18 @@ CSearchListItemDelegate::CSearchListItemDelegate( QObject* pParent )
 //   //painter->fillRect( option.rect, option.palette.highlight() );
 //   painter->setPen( Qt::red );
 //   painter->drawText( option.rect, "abc" );
-//   
+//
 //   drawDisplay( painter, myOption, myOption.rect, "abc" );
 //   drawFocus( painter, myOption, myOption.rect );
-//   
+//
 //   //QItemDelegate::paint( painter, option, rect, sText );
 //}
 
 
 // -------------------------------------------------------------------------------
 void CSearchListItemDelegate::drawDisplay( QPainter* pPainter,
-                                           const QStyleOptionViewItem& option, 
-                                           const QRect& rect, 
+                                           const QStyleOptionViewItem& option,
+                                           const QRect& rect,
                                            const QString& sText ) const
 // -------------------------------------------------------------------------------
 {

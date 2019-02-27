@@ -49,4 +49,3 @@ private:
    bool mbOpen;
 };
 #endif
-

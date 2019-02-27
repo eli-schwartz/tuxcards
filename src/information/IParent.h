@@ -46,4 +46,3 @@ public:
    virtual void aboutToRemoveElement( CInformationElement* pIE ) = 0;
 };
 #endif
-

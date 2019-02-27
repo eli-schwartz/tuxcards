@@ -39,20 +39,20 @@ private slots:
    void previewEntry( CInformationElement* pElement );
 
    void deleteRemainingEntries( void );
-   
+
    void slotShowContextMenu();
    void slotChangeActiveElementProperties();
 
 private:
    // The ui-element.
    Ui::ExpiredElementsDialogInterface ui;
-   
-   
+
+
    // Other private members.
    CInformationCollection* mpCollection;
 
    QHash<QTreeWidgetItem*, CInformationElement*> expiredElementsMap;
-   
+
    QMenu                   mContextMenu;
 
    void checkEntryForExpiryDate( CInformationElement* pElement );
@@ -62,4 +62,3 @@ private:
 };
 
 #endif
-

@@ -219,7 +219,7 @@ void ImageManager::initFlowers(){
 
   //Gesamtes Verzeichnis nach Blten durchsuchen
   dir.setFilter(QDir::Files | QDir::NoSymLinks);
-	
+
   QFileInfoList files=dir.entryInfoList();
   if( !files.isEmpty() ){
 //    QFileInfoListIterator it(*files);									// create iterator
@@ -229,17 +229,17 @@ void ImageManager::initFlowers(){
       for ( int i = 0; i < files.count(); i++ )
       {
 		//while( (f=it.current())!=0 ){
-			
+
 //			++it;
          f = files.at(i);
 			if( f.isFile() && (f.suffix()=="gif") && (f.baseName().right(2)=="_0") ){
 				QString name=f.baseName();
 				name=name.left(name.length()-2);
 				//cout<<name<<endl;
-				
+
 				mpFlowerNames->append( QString(name) );
 			}
-			
+
 		}//while/for
 	}//if(files)
 }

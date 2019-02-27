@@ -247,8 +247,3 @@ void HTMLWriter::createTopFrame( const QDir& dir )
       f.close();
   }
 }
-
-
-
-
-

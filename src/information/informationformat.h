@@ -24,7 +24,7 @@
 class InformationFormat{
 public:
    static InformationFormat* getByString( const QString& sFormat );
-   
+
    bool equals( InformationFormat* );
 
    InformationFormat* canbeConvertedTo( void );
@@ -45,7 +45,7 @@ private:
     * Since an <code>InformationFormat</code> contains a <code>QImage</code>
     * (i.e. a <code>QPaintDevice</code>), the static members must be initialized
     * after the application was started. This is done via "pointer-variables".
-    */   
+    */
    static /*const*/ InformationFormat* NONE;
    static /*const*/ InformationFormat* ASCII;
    static /*const*/ InformationFormat* RTF;
@@ -57,4 +57,3 @@ private:
 };
 
 #endif
-

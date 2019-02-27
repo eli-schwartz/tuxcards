@@ -54,4 +54,3 @@ private:
    void                          notifyListener( void );
 };
 #endif
-

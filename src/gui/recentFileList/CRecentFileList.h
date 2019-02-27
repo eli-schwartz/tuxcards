@@ -40,39 +40,39 @@ class CRecentFileList : public QObject {
   Q_OBJECT
 public:
    CRecentFileList( QWidget* pParent, QMenu* pParentMenu, const QString& sFiles="" );
-   
+
    void          setOnTop( const QString& sAbsPath );
-   
+
    void          createComboBox( QWidget& parentWidget );
-   
+
    QString       toString() const;
 
 private:
    QMenu*        mpParentMenu;
    QStringList   mFileList;
-   
+
    QMenu*        mpRecentlyFilesMenu;
    QComboBox*    mpComboBox;
-   
+
    static const QString SEPARATOR;
    static const uint    MAX_ELEMENT_COUNT;
 
 
    QList<QAction*> mRecentFileActs;
-   
+
    void          createActions( QWidget* pParent );
-   
+
    void          setList( const QString& sFiles );
    void          checkSize();
    void          update();
    void          updateMenu();
    void          updateComboBox();
-   
+
    void          remove( const QString& sAbsPath );
 
 private slots:
    void          slotOpenRecentFile();
-  
+
 signals:
    void          openFile( QString sFileName );
 };

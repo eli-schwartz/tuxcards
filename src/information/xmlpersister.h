@@ -33,8 +33,8 @@ public:
   static CInformationCollection* createInformationCollection( QString xmlString );
 
   static QString getPathOfLastActiveElement( void );
-  
-  
+
+
   // saving
   static void save( CInformationCollection&, QString filename );
 
@@ -47,7 +47,7 @@ private:
   static void parseNode( QDomNode& node, CTreeInformationElement& informationElement );
   static void parseDescriptionAttributes( QDomElement& elem, CTreeInformationElement& informationElem );
   static void parseAttributes( QDomElement& elem, CTreeInformationElement& infoElem );
-  
+
   static QDomElement* parseCollectionDataAndGetRootInformationElement( QDomNode node );
   static QString pathOfLastActiveElement;
 

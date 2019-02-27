@@ -55,12 +55,12 @@ CPropertyDialog::CPropertyDialog( QWidget* pParent/*,
 {
    ui.setupUi( this );
    setModal( TRUE );
-   
+
    connect( ui.mpChangeIconButton, SIGNAL(clicked()), this, SLOT(chooseIcon()) );
    connect( ui.mpChangeExpiryDateButton, SIGNAL(clicked()), this, SLOT(openDateInputDialog()) );
    connect( ui.mpDescriptionColorButton, SIGNAL(clicked()), this, SLOT(slotChooseDescriptionColor()) );
    connect( this, SIGNAL(accepted()), this, SLOT(changeProperties()) );
-   
+
 //   connect( ui.mpEncryptionPanel, SIGNAL(clicked()), this, SLOT(checkEncryption()) );
 
    // initialize the date input dialog
@@ -126,8 +126,8 @@ void CPropertyDialog::setUp( CInformationElement* pElement, int iMode )
    if ( MODE_CHANGE_PROPERTIES == iMode )
    {
       setWindowTitle( tr("Change Properties of existing Entry") );
-      
-      ui.mpParentLabel->setText( "" );      
+
+      ui.mpParentLabel->setText( "" );
       setAttributes( pElement->getDescription(), pElement->getIconFileName(),
                      pElement->expires(), pElement->getExpiryDate(),
                      pElement->getDescriptionColor()/*,
@@ -179,11 +179,11 @@ void CPropertyDialog::setAttributes( QString sDescription, QString sIconFilename
       ui.mpIconLabel->setPixmap( QPixmap::fromImage( QImage(sIconFilename) ) );
    }
    ui.mpLocationLabel->setText( sIconFilename );
-   
+
    ui.mpNameLine->setText(sDescription);
 
    setDescriptionColor( desColor );
-   
+
    ui.mpExpiryDateGroupBox->setChecked( bExpires );
    mExpiryDate = expiryDate;
    ui.mpExpiryDateLabel->setText( mExpiryDate.toString("dddd, d MMMM yyyy") );
@@ -222,7 +222,7 @@ void CPropertyDialog::chooseIcon()
       Q_ASSERT( NULLPTR != mpIconSelectorDialog );
       if ( !mpIconSelectorDialog )
          return;
-         
+
       connect( mpIconSelectorDialog, SIGNAL(accepted()), this, SLOT(iconSelected()) );
    }
 
@@ -235,13 +235,13 @@ void CPropertyDialog::iconSelected()
 {
    if ( !mpIconSelectorDialog )
       return;
-      
-      
+
+
    QString sIconFileName = mpIconSelectorDialog->getIconFileName();
 
    if( sIconFileName.isEmpty() )
       return;
-      
+
    // if 'sIconFileName' is a valid fileName, test whether it is a valid Pixmap
    QPixmap pix( sIconFileName );
    if ( ! pix.isNull() )
@@ -266,19 +266,19 @@ void CPropertyDialog::setDescriptionColor( const QColor& c )
 // -------------------------------------------------------------------------------
 {
    mDescriptionColor = c;
-   
+
    if ( !ui.mpDescriptionColorButton )
       return;
-      
+
    int iWidth  = 24;
    int iHeight = 24;
    QPixmap pixmap( iWidth, iHeight );
-   
+
    QPainter p;
    p.begin( &pixmap );
    p.fillRect( 0,0, iWidth,iHeight, mDescriptionColor );
    p.end();
-   
+
    ui.mpDescriptionColorButton->setIcon( pixmap );
 
 //    QPalette p = ui.mpDescriptionColorButton->palette();
@@ -446,7 +446,7 @@ void CPropertyDialog::openDateInputDialog()
    Q_ASSERT( NULLPTR != mpDateInputDialog );
    if ( !mpDateInputDialog )
       return;
-   
+
    mpDateInputDialog->setUp( mExpiryDate );
 }
 
@@ -457,7 +457,7 @@ void CPropertyDialog::changeExpiryDate()
    Q_ASSERT( NULLPTR != mpDateInputDialog );
    if ( !mpDateInputDialog )
       return;
-   
+
    mExpiryDate = mpDateInputDialog->getSelectedDate();
    ui.mpExpiryDateLabel->setText( mExpiryDate.toString("dddd, d MMMM yyyy") );
 }

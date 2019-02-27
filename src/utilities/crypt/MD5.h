@@ -27,7 +27,7 @@
 // UINT4 defines a four byte word
 typedef unsigned long int UINT4;
 
-class CMD5 
+class CMD5
 {
 public:
 	// MD5 context
@@ -36,7 +36,7 @@ public:
 		unsigned long int count[2]; // number of bits, modulo 2^64 (lsb first)
 		unsigned char buffer[64];   // input buffer
 	} MD5_CTX;
-	
+
 public:
 	CMD5();
 	~CMD5();
@@ -53,11 +53,11 @@ protected:
 	void MD5Transform(UINT4 [4], unsigned char [64]);
 	void Encode(unsigned char *, UINT4 *, unsigned int);
 	void Decode(UINT4 *, unsigned char *, unsigned int);
-	
+
 private:
 	MD5_CTX m_context;
 	unsigned char m_digest[16]; //the numerical value of the digest
-	char  m_digestString[33]; 
+	char  m_digestString[33];
 };
 
 #endif

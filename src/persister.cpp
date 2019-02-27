@@ -42,7 +42,7 @@ CInformationCollection* Persister::unpack(QString s){
     s=s.mid(12);										// remove VersionString from front
     unpackWithIcons(s, true, e);
   }
-  
+
   return new CInformationCollection(e);
 }
 // *** old method ***
@@ -125,9 +125,9 @@ void Persister::unpackWithIcons(QString s, bool root, CTreeInformationElement* p
 		self->setIconFileName(iconFile);
  	  self->setOpen(isOpen);
 		parent->addChild(self);
-  } 
+  }
   //cout<<self->getDescription()<<endl;
-  
+
 	for (i=1; i<=amountOfChilds; i++){
 		knoten=knoten.mid(3);														// cutting "***" off
 		int i=knoten.indexOf("*");													//get length of child
@@ -238,7 +238,7 @@ void Persister::save(CInformationCollection* collection, QString filename)
    CTreeInformationElement* pRootElem = (CTreeInformationElement*)collection->getRootElement();
    if ( NULLPTR == pRootElem )
       return;
-      
+
    QString s= "TuxCardsV0.5" + pRootElem->toStringObsoleted();
 
    QFile f(filename);

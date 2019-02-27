@@ -25,10 +25,10 @@ class CDateInputDialog : public QDialog {
    Q_OBJECT
 public:
    ~CDateInputDialog();
-   
+
    static void              createInstance( QWidget* pParent );
    static CDateInputDialog* getInstance();
-   
+
    void                     setUp( const QDate& initialDate = QDate::currentDate() );
    QDate                    getSelectedDate() const;
 
@@ -38,7 +38,7 @@ private:
    static CDateInputDialog* static_pInstance;
 
    //#define DEFAULT_DURATION 1
-   
+
    Ui::IDateInputDialog ui;
 };
 

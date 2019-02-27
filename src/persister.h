@@ -26,7 +26,7 @@ class Persister{
 public:
   // loading
 	static CInformationCollection* createInformationCollection(QString s);
-	
+
 	// saving
   static void save(CInformationCollection*, QString filename);
 
@@ -38,4 +38,3 @@ private:
 
 };
 #endif
-

@@ -45,7 +45,7 @@ QFont FontSettings::toFont(){
   font.setStrikeOut(strikeout);
   return font;
 }
-           
+
 
 QString FontSettings::getFamily(){ return family; }
 int FontSettings::getSize(){ return size; }

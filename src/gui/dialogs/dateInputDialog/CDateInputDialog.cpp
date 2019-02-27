@@ -74,7 +74,7 @@ void CDateInputDialog::setUp( const QDate& initialDate )
 // -------------------------------------------------------------------------------
 {
    ui.mpCalendarWidget->setFirstDayOfWeek( Qt::Monday );
-   
+
    QDate currentDate = QDate::currentDate();
    ui.mpCalendarWidget->setMinimumDate( currentDate );
 

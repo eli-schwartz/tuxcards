@@ -34,19 +34,19 @@ class CPropertyDialog : public QDialog {
    Q_OBJECT
 public:
    ~CPropertyDialog();
-   
+
    static void               createInstance( QWidget* pParent );
    static CPropertyDialog*   getInstance();
-   
+
    enum {
       MODE_NONE,
       MODE_CHANGE_PROPERTIES,
       MODE_CREATE_NEW_ELEMENT
    };
    int                       getMode() const;
-   
+
    void                      setUp( CInformationElement* pElement, int iMode );
-   
+
    QString                   getName() const;
    QString                   getIconFileName() const;
    InformationFormat*        getInformationFormat() const;
@@ -57,13 +57,13 @@ public:
 
 signals:
     void                     dataSuccessfullyEntered();
-    
+
 private slots:
    void                      changeProperties();
 
    void                      openDateInputDialog();
    void                      changeExpiryDate();
-   
+
    void                      chooseIcon();
    void                      iconSelected();
 
@@ -77,7 +77,7 @@ private:
 
    QDate                     mExpiryDate;
    CDateInputDialog*         mpDateInputDialog;
-   
+
    QPixmap                   mBlankIcon;
    CIconSelectorDialog*      mpIconSelectorDialog;
 
@@ -94,7 +94,7 @@ private:
 
    QColor                    mDescriptionColor;
    void                      setDescriptionColor( const QColor& c );
-   
+
 //   CTuxCardsConfiguration&   mrefTuxConfiguration;
 
    Ui::IPropertyDialog ui;

@@ -189,7 +189,7 @@ QString CInformationCollection::toXML( void )
 // }
 
 
-  QDomDocument xmlDocument("tuxcards_data_file");  
+  QDomDocument xmlDocument("tuxcards_data_file");
   xmlDocument.insertBefore( xmlDocument.createProcessingInstruction( "xml", "version=\"1.0\" encoding=\"utf-8\"" ), xmlDocument.documentElement() );
   //xmlDocument.insertBefore( xmlDocument.createProcessingInstruction( "xml", "version=\"1.0\" encoding=\"UTF-8\"" ), xmlDocument.documentElement() );
 //  QDomElement rootElem = xmlDocument.createElement("Menschen");
